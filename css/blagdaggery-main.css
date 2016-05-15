@@ -1,0 +1,117 @@
+/* Colors
+Asphault - rgb(81,88,96)
+Sidewalk - rgb(206,206,194)
+Grass - rgb(88,131,77)
+Sky - rgb(101,168,246)
+*/
+
+html, body {
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+
+/* Header Styling */
+header {
+	height: 120px;
+	background-color: rgb(81,88,96);
+	text-align: center;
+	color: rgb(206,206,194);
+	margin-top: -21px;
+}
+
+header .brand {
+	width: 100%
+}
+
+header .brand h1 {
+	padding: 10px 0 0 0;
+}
+
+header nav {
+	display: inline-block;
+	margin: 5px 5px 0 0;
+}
+
+header nav a {
+	border: 1px solid;
+	text-decoration: none;
+	color: rgb(206,206,194);
+	padding: 10px 30px;
+}
+
+header nav a:hover {
+	background-color: rgb(88,131,77);
+	transition: background .25s;
+}
+
+/* Footer */
+footer {
+	height: 80px;
+	background-color: rgb(81,88,96);
+	margin: -21px 0 -21px 0;
+	text-align: center;
+}
+
+footer ul {
+	list-style: none;
+	padding: 20px 0 0 0;
+}
+
+footer ul li {
+	display: inline-block;
+	margin: 5px 20px 0 5px;
+}
+
+footer ul li a {
+	text-decoration: none;
+	color: rgb(206,206,194);
+}
+
+/* Home Page - Hero */
+.hero {
+	text-align: center;
+	height: 350px;
+	background: url(../img/blue-ridge-mountains.jpg) no-repeat center center;
+	background-size: cover;
+	color: rgb(81,88,96);
+	margin-top: -25px;
+}
+
+.hero h1 {
+	padding: 70px 0 0 0;
+}
+
+/* Home Page - Detail */
+.detail {
+	height: 300px;
+	margin-top: -20px;
+	background-color: rgb(206,206,194);
+	color: rgb(81,88,96);
+	text-align: center;
+}
+
+.detail .row .column {
+	width: 35%;
+	margin-right: 20px;
+	display: inline-block;
+	text-align: center;
+}
+
+/* Article Pages */
+.article {
+	height: 600px;
+	margin-top: -22px;
+	background-color: rgb(206,206,194);
+	text-align: center;
+	color: rgb(81,88,96);
+}
+
+.article .content {
+	width: 60%;
+	margin: auto;
+}
+
+.article .content h1 {
+	padding-top: 30px;
+}
