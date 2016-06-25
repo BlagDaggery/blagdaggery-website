@@ -45,6 +45,7 @@ header nav a:hover {
 	transition: background .25s;
 }
 
+
 /* Footer */
 footer {
 	height: 80px;
@@ -103,15 +104,20 @@ footer ul li a {
 	height: 600px;
 	margin-top: -22px;
 	background-color: rgb(206,206,194);
-	text-align: center;
 	color: rgb(81,88,96);
 }
 
+.article .headline {
+	text-align: center;
+}
+
+.article .headline h1 {
+	padding-top: 30px;
+	text-align: center;
+}
+
 .article .content {
-	width: 60%;
+	width: 50%;
 	margin: auto;
 }
 
-.article .content h1 {
-	padding-top: 30px;
-}
