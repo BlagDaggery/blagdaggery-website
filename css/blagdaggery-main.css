@@ -24,13 +24,13 @@ body {
 
 /* Header Styling */
 header {
-    // Blaine, you might not want to explicity set a header height (or at least only set the height for desktop browsers)
-	//height: 120px;
+    /* Blaine, you might not want to explicity set a header height (or at least only set the height for desktop browsers)
+	   height: 120px; */
 	background-color: rgb(81,88,96);
 	text-align: center;
 	color: rgb(206,206,194);
     padding-bottom: 20px;
-	//margin-top: -21px; // again I'm pulling this out and just setting margin-top for all h1s explicity
+	/* margin-top: -21px; // again I'm pulling this out and just setting margin-top for all h1s explicity */
 }
 
 header .brand {
@@ -126,7 +126,7 @@ footer ul li a {
 
 /* Article Pages */
 .article {
-	margin-top: -22px;
+	/* margin-top: -22px; */
 	background-color: rgb(206,206,194);
 	color: rgb(81,88,96);
 	padding-bottom: 20px;
