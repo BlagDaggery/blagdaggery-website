@@ -11,7 +11,16 @@ h1 {
     margin-top: 0;
 }
 
+.home-tile-heading {
+	color: rgb(81,88,96);
+	text-decoration: none;
+}
 
+.home-tile-heading:hover {
+	text-decoration: underline;
+}
+
+/* Background Styling */
 html, body {
 	padding: 0;
 	margin: 0;
@@ -123,6 +132,7 @@ footer ul li a {
 	display: inline-block;
 	text-align: center;
 }
+
 
 /* Article Pages */
 .article {
