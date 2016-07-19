@@ -1,3 +1,9 @@
+/* Things learned:
+	- Don't explicity set a header height. Let the elemeents within your header determine how much space it needs. 
+	- If you're using an h[x] in your header, it might pull your header away from the top of the window.
+	- If ^^ that happens, set the top margin for your h[x] element to 0 instead of using a negative margin on your whole header.
+*/
+
 /* Colors
 Asphault - rgb(81,88,96)
 Sidewalk - rgb(206,206,194)
@@ -20,7 +26,7 @@ h1 {
 	text-decoration: underline;
 }
 
-/* Background Styling */
+/* Base Styling */
 html, body {
 	padding: 0;
 	margin: 0;
