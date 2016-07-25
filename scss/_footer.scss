@@ -1,0 +1,19 @@
+footer {
+	height: 80px;
+	background-color: rgb(81,88,96);
+	text-align: center;
+	clear: all;
+	margin: -21px 0 -21px 0;
+	ul {
+		list-style: none;
+		padding: 20px 0 0 0;
+		li {
+			display: inline-block;
+			margin: 5px 20px 0 5px;
+			a {
+				text-decoration: none;
+				color: rgb(206,206,194);
+			}
+		}
+	}
+}
