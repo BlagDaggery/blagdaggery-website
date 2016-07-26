@@ -1,20 +1,13 @@
 @import "typography";
 @import "header";
 @import "footer";
-// etc.
 
-// Blaine -- this is a lesson in 1) CSS preprocessing (go read about it), and 2) file organization
-// Instead of authoring straight-up CSS, you should really use a CSS preprocessor, such as SCSS (Sass)
-// You can read about it here: http://sass-lang.com/guide
-// 
-// 
-// This file would be "compiled" into style.css.
-
-// Luan -- Very cool! I've been learning about SCSS, and it makes a lot of sense. I'll start using it.
-// Do you have any recommendations on what application to download so I can start using SCSS?
-// I'm looking at Koala and Scout.
-// Update: I just downloaded Koala
-
+html, body {
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+	height: 100%;
+}
 
 /* Home Page - Hero */
 .hero {
