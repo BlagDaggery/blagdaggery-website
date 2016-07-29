@@ -1,11 +1,5 @@
-h1 {
+h1, h2, h3, h4 {
     margin-top: 0;
+    margin-bottom: 0;
 }
 
-.home-tile-heading {
-	color: rgb(81,88,96);
-	text-decoration: none;
-	&:hover {
-		text-decoration: underline;
-	}
-}

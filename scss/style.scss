@@ -2,6 +2,11 @@
 @import "header";
 @import "footer";
 
+$asphault: rgb(81,88,96);
+$sidewalk: rgb(206,206,194);
+$grass: rgb(88,131,77);
+$sky: rgb(101,168,246);
+
 html, body {
 	padding: 0;
 	margin: 0;
@@ -15,7 +20,7 @@ html, body {
 	height: 350px;
 	background: url(../img/maine-panorama-home-hero.jpg) no-repeat center center;
 	background-size: cover;
-	color: rgb(81,88,96);
+	color: $asphault;
 	h1 {
 		padding: 70px 0 0 0;
 	}
@@ -23,23 +28,25 @@ html, body {
 
 /* Home Page - Detail */
 .detail {
-	height: 300px;
 	margin-top: 0;
-	background-color: rgb(206,206,194);
-	color: rgb(81,88,96);
+	background-color: $sidewalk;
+	color: $asphault;
 	text-align: center;
 	.column {
 		width: 35%;
-		margin-right: 20px;
 		display: inline-block;
 		text-align: center;
+		img {
+			margin: 5px auto 20px auto;
+		}
 	}
 }
 
+
 /* Article Pages */
 .article {
-	background-color: rgb(206,206,194);
-	color: rgb(81,88,96);
+	background-color: $sidewalk;
+	color: $asphault;
 	.headline {
 		text-align: center;
 		h1 {
@@ -54,3 +61,13 @@ html, body {
 	}
 }
 
+@media (max-width: 650px) {
+    header nav a {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .detail .column {
+    	display: block;
+    	width: 80%;
+    }
+}
