@@ -1,6 +1,6 @@
 h1, h2, h3, h4 {
   margin-top: 0;
-  margin-bottom: 0; }
+  margin-bottom: 10px; }
 
 header {
   background-color: #515860;
@@ -25,21 +25,17 @@ header {
         transition: background .25s; }
 
 footer {
-  height: 80px;
   background-color: #515860;
   text-align: center;
   clear: all;
   margin: 0; }
-  footer ul {
-    margin-top: 0;
-    list-style: none;
-    padding: 20px 0 0 0; }
-    footer ul li {
+  footer nav {
+    padding: 20px 0 20px 0; }
+    footer nav a {
       display: inline-block;
-      margin: 5px 20px 0 5px; }
-      footer ul li a {
-        text-decoration: none;
-        color: #cecec2; }
+      margin: 0 15px 0 15px;
+      text-decoration: none;
+      color: #cecec2; }
 
 html, body {
   padding: 0;
@@ -67,8 +63,20 @@ html, body {
     width: 35%;
     display: inline-block;
     text-align: center; }
-    .detail .column img {
-      margin: 5px auto 20px auto; }
+    .detail .column .detail-container {
+      padding: 20px; }
+      .detail .column .detail-container a {
+        color: #515860;
+        text-decoration: none; }
+        .detail .column .detail-container a img {
+          margin: 0 auto 0;
+          width: 85%;
+          height: auto;
+          border: 2px solid transparent; }
+        .detail .column .detail-container a:hover {
+          text-decoration: underline; }
+          .detail .column .detail-container a:hover img {
+            border: 2px solid #515860; }
 
 /* Article Pages */
 .article {
@@ -79,18 +87,46 @@ html, body {
     .article .headline h1 {
       padding-top: 30px;
       text-align: center; }
+    .article .headline img {
+      width: 40%;
+      height: auto; }
   .article .content {
-    width: 50%;
+    width: 40%;
     margin: auto;
     padding: 0 0 10px 0; }
+    .article .content .menu {
+      margin-top: 20px; }
+      .article .content .menu .blog-listing-text {
+        padding: 5px; }
+        .article .content .menu .blog-listing-text a {
+          text-decoration: none;
+          color: #515860; }
+          .article .content .menu .blog-listing-text a:hover {
+            text-decoration: underline; }
+        .article .content .menu .blog-listing-text hr {
+          color: #515860; }
 
 @media (max-width: 650px) {
+  /* Header */
   header nav a {
     display: block;
     margin-bottom: 10px; }
 
+  /* Footer */
+  footer nav a {
+    display: block;
+    margin-bottom: 10px; }
+
+  /* Home Page - Detail */
   .detail .column {
     display: block;
-    width: 80%; } }
+    width: 100%; }
+
+  /* Article */
+  .article .headline img {
+    width: 90%;
+    height: auto; }
+  .article .content {
+    width: 90%; } }
 
 /*# sourceMappingURL=style.css.map */
