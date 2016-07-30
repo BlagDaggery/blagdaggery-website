@@ -36,6 +36,8 @@ footer {
       margin: 0 15px 0 15px;
       text-decoration: none;
       color: #cecec2; }
+      footer nav a:hover {
+        text-decoration: underline; }
 
 html, body {
   padding: 0;
@@ -96,14 +98,14 @@ html, body {
     padding: 0 0 10px 0; }
     .article .content .menu {
       margin-top: 20px; }
-      .article .content .menu .blog-listing-text {
+      .article .content .menu .menu-text {
         padding: 5px; }
-        .article .content .menu .blog-listing-text a {
+        .article .content .menu .menu-text a {
           text-decoration: none;
           color: #515860; }
-          .article .content .menu .blog-listing-text a:hover {
+          .article .content .menu .menu-text a:hover {
             text-decoration: underline; }
-        .article .content .menu .blog-listing-text hr {
+        .article .content .menu .menu-text hr {
           color: #515860; }
 
 @media (max-width: 650px) {

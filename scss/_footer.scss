@@ -16,6 +16,9 @@ footer {
 			margin: 0 15px 0 15px;
 			text-decoration: none;
 			color: $sidewalk;
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 }
