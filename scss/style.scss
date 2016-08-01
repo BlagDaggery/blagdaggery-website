@@ -1,11 +1,14 @@
+@import "variables";
 @import "typography";
 @import "header";
 @import "footer";
 
-$asphault: rgb(81,88,96);
-$sidewalk: rgb(206,206,194);
-$grass: rgb(88,131,77);
-$sky: rgb(101,168,246);
+
+
+// BLAINE: one of the most important rules in coding -- "DRY" -- Don't Repeat Yourself
+// You have defined these color variables in every file. What happens when you want to tweak the asphault color? 
+// You have to do it everywhere.
+// I've created a variables SCSS partial, and imported 1st so you can use it in all of the files.
 
 html, body {
 	padding: 0;
@@ -45,7 +48,7 @@ html, body {
 					margin: 0 auto 0;
 					width: 85%;
 					height: auto;
-					border: 2px solid transparent
+					border: 2px solid transparent;
 				}
 				&:hover {
 						text-decoration: underline;
@@ -82,7 +85,14 @@ html, body {
 			margin-top: 20px;
 			.menu-text {
 				padding: 5px;
-				a {
+                // Blaine: if possible, you want to nest less, rather than nest more.
+                // These "a" styles will produce this selector: ".article .content .menu .menu-text a"
+                // which is a selector with 5 level specificity, making it harder to override elsewhere in the website
+                // you could consider moving the ".menu-text" block out of the ".menu"
+                // There are def pros and cons. Using this method, it clearly demonstrates that .menu-text is an element that is
+                // inside of .menu, which is inside of .content.
+                // However, very specific and powerful CSS rules can become unwieldy as an application grows 
+ 				a {
 					text-decoration: none;
 					color: $asphault;
 					&:hover {
@@ -96,6 +106,9 @@ html, body {
 		}
 	}
 }
+
+
+// Blaine: change this to use the new breakpoint mixin that I added (@mobile) in _variables.scss
 
 @media (max-width: 650px) {
     /* Header */

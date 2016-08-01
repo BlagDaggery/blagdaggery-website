@@ -1,0 +1,65 @@
+// ----
+// color variables
+// ----
+$asphault: rgb(81,88,96);
+$sidewalk: rgb(206,206,194);
+$grass: rgb(88,131,77);
+$sky: rgb(101,168,246);
+
+
+
+// ----
+// breakpoint variables
+// ----
+// adjust your breakpoints here
+$tablet-width           : 650px;
+$desktop-width          : 1024px;
+
+
+
+// ----
+// other variables
+// ----
+
+
+
+
+// ----
+// breakpoint mixins
+// ----
+
+// Blaine: I added some mixins that you can use throughout your .scss files.
+// instead of having to write the same media query multiple times, such as @media (max-width: 650px) {}
+// now, you will be able to do this
+// @include mobile {
+//      put styles here.
+// }
+@mixin mobile {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin tablet-down {
+  @media (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
