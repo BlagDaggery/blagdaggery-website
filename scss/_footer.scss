@@ -1,15 +1,12 @@
-$asphault: rgb(81,88,96);
-$sidewalk: rgb(206,206,194);
-$grass: rgb(88,131,77);
-$sky: rgb(101,168,246);
-
-
 footer {
 	background-color: $asphault;
+	height: 60px;
 	text-align: center;
 	clear: all;
 	margin: 0;
-	margin-bottom: 0;
+	bottom: 0;
+	position: absolute;
+	width: 100%;
 	nav {
 		padding: 20px 0 20px 0;
 		a {

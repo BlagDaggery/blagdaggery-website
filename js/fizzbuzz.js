@@ -4,16 +4,17 @@ var main = function() {
 	$("button").click(function() {
 		for (var i = 1; i < 51; i++) {
 			if (i % 3 === 0 && i % 5 === 0) {
-				content.append("<p>FizzBuzz!</p>");
+				content.append("<p><b>FizzBuzz!</b></p>");
 			} else if (i % 5 === 0) {
-		        content.append("<p>Buzz!</p>");
+		        content.append("<p><b>Buzz!</b></p>");
 		    } else if (i % 3 === 0) {
-		        content.append("<p>Fizz!</p>");
+		        content.append("<p><b>Fizz!</b></p>");
 		    } else {
 		        content.append("<p>" + i + "</p>");
 		    }
 		};
-		$("button").toggle();
+		$(this).toggle();
+		content.append("<p>Refresh the page to see it again.</p>")
 	});
 }
 
