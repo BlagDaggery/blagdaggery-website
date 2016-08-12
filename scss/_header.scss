@@ -1,13 +1,7 @@
-// delete variables.. no longer needed
-$asphault: rgb(81,88,96);
-$sidewalk: rgb(206,206,194);
-$grass: rgb(88,131,77);
-$sky: rgb(101,168,246);
-
 header {
-	background-color: rgb(81,88,96);
+	background-color: $asphault;
 	text-align: center;
-	color: rgb(206,206,194);
+	color: $sidewalk;
     padding-bottom: 20px;
     .brand {
     	width: 100%;
@@ -21,11 +15,11 @@ header {
     	a {
 	    	border: 1px solid;
 			text-decoration: none;
-			color: rgb(206,206,194);
+			color: $sidewalk;
 			padding: 10px 30px;
 		    display: inline-block;
 		    &:hover {
-		    	background-color: rgb(88,131,77);
+		    	background-color: $grass;
 		    	transition: background .25s;
 		    }
 		}

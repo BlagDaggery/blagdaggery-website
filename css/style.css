@@ -34,7 +34,7 @@ footer {
   position: absolute;
   width: 100%; }
   footer nav {
-    padding: 20px 0 20px 0; }
+    padding: 20px 0 0 0; }
     footer nav a {
       display: inline-block;
       margin: 0 15px 0 15px;
@@ -127,20 +127,27 @@ html, body {
     margin-bottom: 10px; }
 
   /* Footer */
+  footer {
+    height: 140px; }
+
   footer nav a {
     display: block;
     margin-bottom: 10px; }
 
   /* Home Page - Detail */
-  .detail .column {
-    display: block;
-    width: 100%; }
+  .detail {
+    padding-bottom: 140px; }
+    .detail .column {
+      display: block;
+      width: 100%; }
 
   /* Article */
-  .article .headline img {
-    width: 90%;
-    height: auto; }
-  .article .content {
-    width: 90%; } }
+  .article {
+    padding-bottom: 140px; }
+    .article .headline img {
+      width: 90%;
+      height: auto; }
+    .article .content {
+      width: 90%; } }
 
 /*# sourceMappingURL=style.css.map */

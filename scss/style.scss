@@ -3,13 +3,6 @@
 @import "header";
 @import "footer";
 
-
-
-// BLAINE: one of the most important rules in coding -- "DRY" -- Don't Repeat Yourself
-// You have defined these color variables in every file. What happens when you want to tweak the asphault color? 
-// You have to do it everywhere.
-// I've created a variables SCSS partial, and imported 1st so you can use it in all of the files.
-
 html, body {
 	padding: 0;
 	margin: 0;
@@ -126,17 +119,24 @@ html, body {
         margin-bottom: 10px;
     }
     /* Footer */
+    footer {
+    	height: 140px;
+    }
     footer nav a {
     	display: block;
     	margin-bottom: 10px;
     }
     /* Home Page - Detail */
-    .detail .column {
-    	display: block;
-    	width: 100%;
+    .detail {
+    	padding-bottom: 140px;
+    	.column {
+        	display: block;
+        	width: 100%;
+        }
     }
     /* Article */
     .article {
+    	padding-bottom: 140px;
     	.headline img {
     		width: 90%;
     		height: auto;
