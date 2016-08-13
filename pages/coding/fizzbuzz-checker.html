@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>FizzBuzz | BlagDaggery.com</title>
+	<title>FizzBuzz Checker | BlagDaggery.com</title>
 	<link rel="stylesheet" href="../../css/style.css" />
 </head>
 <body>
@@ -20,11 +20,15 @@
 		</header><!--header-->
 		<section class="article">
 			<div class="headline">
-				<h1>FizzBuzz</h1>
+				<h1>FizzBuzz Checker</h1>
 			</div>
 			<div class="content">
-				<p>Click the button to make your computer count from 1 to 50 according to the rules of FizzBuzz.</p>
-				<button type="button">Play FizzBuzz</button>
+				<p>Type any number you want into the field below and click the button to see how it would fit into a game of FizzBuzz.</p>
+				<form>
+					<input type="text" name="number" placeholder="Type any number...">
+					<button class="button">Submit</button>
+				</form>
+				<div id="resultArea"></div>
 			</div><!--content-->
 		</section>
 		<footer>
@@ -37,6 +41,6 @@
 		</footer>
 	</div>
 <script src="../../js/jquery-3.1.0.js"></script>
-<script src="../../js/fizzbuzz.js"></script>
+<script src="../../js/fizzbuzz-checker.js"></script>
 </body>
 </html>
