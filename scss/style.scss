@@ -35,32 +35,34 @@ html, body {
 	color: $asphault;
 	text-align: center;
 	padding-bottom: 60px;
-	.column {
-		width: 35%;
-		display: inline-block;
-		text-align: center;
-		.detail-container {
-			padding: 20px;
-			a {
-				color: $asphault;
-				text-decoration: none;
+}
+
+
+.column {
+	width: 35%;
+	display: inline-block;
+	text-align: center;
+}
+
+.detail-container {
+	padding: 20px;
+	a {
+		color: $asphault;
+		text-decoration: none;
+		img {
+			margin: 0 auto 0;
+			width: 85%;
+			height: auto;
+			border: 2px solid transparent;
+		}
+		&:hover {
+				text-decoration: underline;
 				img {
-					margin: 0 auto 0;
-					width: 85%;
-					height: auto;
-					border: 2px solid transparent;
-				}
-				&:hover {
-						text-decoration: underline;
-						img {
-						border: 2px solid $asphault;
-					}
-				}
+				border: 2px solid $asphault;
 			}
 		}
 	}
 }
-
 
 /* Article Pages */
 .article {
