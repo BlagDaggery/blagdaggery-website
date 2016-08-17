@@ -1,13 +1,16 @@
 header {
-	background-color: $asphault;
+	background-color: $primary-1;
 	text-align: center;
-	color: $sidewalk;
+	color: $primary-2;
     padding-bottom: 20px;
-    .brand {
+    #brand {
     	width: 100%;
     	h1 {
     		padding: 10px 0 0 0;
     	}
+    }
+    #menu-expand {
+    	display: none;
     }
     nav {
     	display: inline-block;
@@ -15,16 +18,50 @@ header {
     	a {
 	    	border: 1px solid;
 			text-decoration: none;
-			color: $sidewalk;
+			color: $primary-2;
 			padding: 10px 30px;
 		    display: inline-block;
 		    &:hover {
-		    	background-color: $grass;
+		    	background-color: $accent-1;
 		    	transition: background .25s;
 		    }
 		}
     }
 }
 
+@media (max-width: 650px) {
+	header {
+		padding-bottom: 0;
+		nav {
+			a {
+				display: none;
+				margin-bottom: 10px;
+        	}
+        }
+    	#brand {
+    		width: 50%;
+    		float: left;
+			text-align: left;
+    		font-size: 75%;
+    		h1 {
+    			margin: 0 0 0 20px;
+    		}
+    	}
+    	#menu-expand {
+    		width: 50%;
+    		float: right;
+    		text-align: right;
+    		font-size: 75%;
+    		display: inline-block;
+    		h1 {
+    			padding: 10px 0 0 0;
+    			margin: 0 20px 0 0;
+    			&:hover {
+    				cursor: pointer;
+    			}
+    		}
+    	}
+    }
+}
 
 

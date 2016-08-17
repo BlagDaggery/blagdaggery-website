@@ -8,7 +8,7 @@ html, body {
 	margin: 0;
 	font-family: sans-serif;
 	height: 100%;
-	background-color: $sidewalk;
+	background-color: $primary-2;
 }
 
 #wrapper {
@@ -22,7 +22,7 @@ html, body {
 	height: 350px;
 	background: url(../img/maine-panorama-home-hero.jpg) no-repeat center center;
 	background-size: cover;
-	color: $asphault;
+	color: $primary-1;
 	h1 {
 		padding: 70px 0 0 0;
 	}
@@ -31,8 +31,8 @@ html, body {
 /* Home Page - Detail */
 .detail {
 	margin-top: 0;
-	background-color: $sidewalk;
-	color: $asphault;
+	background-color: $primary-2;
+	color: $primary-1;
 	text-align: center;
 	padding-bottom: 60px;
 }
@@ -47,7 +47,7 @@ html, body {
 .detail-container {
 	padding: 20px;
 	a {
-		color: $asphault;
+		color: $primary-1;
 		text-decoration: none;
 		img {
 			margin: 0 auto 0;
@@ -58,7 +58,7 @@ html, body {
 		&:hover {
 				text-decoration: underline;
 				img {
-				border: 2px solid $asphault;
+				border: 2px solid $primary-1;
 			}
 		}
 	}
@@ -66,8 +66,8 @@ html, body {
 
 /* Article Pages */
 .article {
-	background-color: $sidewalk;
-	color: $asphault;
+	background-color: $primary-2;
+	color: $primary-1;
 	padding-bottom: 60px;
 	.headline {
 		text-align: center;
@@ -98,13 +98,13 @@ html, body {
                 // However, very specific and powerful CSS rules can become unwieldy as an application grows 
  				a {
 					text-decoration: none;
-					color: $asphault;
+					color: $primary-1;
 					&:hover {
 						text-decoration: underline;
 					}
 				}
 				hr {
-					color: $asphault;
+					color: $primary-1;
 				}
 			}
 		}
@@ -116,18 +116,8 @@ html, body {
 
 @media (max-width: 650px) {
     /* Header */
-    header nav a {
-        display: block;
-        margin-bottom: 10px;
-    }
+    
     /* Footer */
-    footer {
-    	height: 140px;
-    }
-    footer nav a {
-    	display: block;
-    	margin-bottom: 10px;
-    }
     /* Home Page - Detail */
     .detail {
     	padding-bottom: 140px;

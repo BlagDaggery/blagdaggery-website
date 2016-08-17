@@ -10,10 +10,12 @@ header {
   text-align: center;
   color: #cecec2;
   padding-bottom: 20px; }
-  header .brand {
+  header #brand {
     width: 100%; }
-    header .brand h1 {
+    header #brand h1 {
       padding: 10px 0 0 0; }
+  header #menu-expand {
+    display: none; }
   header nav {
     display: inline-block;
     margin: 5px 5px 0 0; }
@@ -27,6 +29,30 @@ header {
         background-color: #58834d;
         transition: background .25s; }
 
+@media (max-width: 650px) {
+  header {
+    padding-bottom: 0; }
+    header nav a {
+      display: none;
+      margin-bottom: 10px; }
+    header #brand {
+      width: 50%;
+      float: left;
+      text-align: left;
+      font-size: 75%; }
+      header #brand h1 {
+        margin: 0 0 0 20px; }
+    header #menu-expand {
+      width: 50%;
+      float: right;
+      text-align: right;
+      font-size: 75%;
+      display: inline-block; }
+      header #menu-expand h1 {
+        padding: 10px 0 0 0;
+        margin: 0 20px 0 0; }
+        header #menu-expand h1:hover {
+          cursor: pointer; } }
 footer {
   background-color: #515860;
   height: 60px;
@@ -46,6 +72,12 @@ footer {
       footer nav a:hover {
         text-decoration: underline; }
 
+@media (max-width: 650px) {
+  footer {
+    height: 140px; }
+    footer nav a {
+      display: block;
+      margin-bottom: 10px; } }
 html, body {
   padding: 0;
   margin: 0;
@@ -127,18 +159,7 @@ html, body {
 
 @media (max-width: 650px) {
   /* Header */
-  header nav a {
-    display: block;
-    margin-bottom: 10px; }
-
   /* Footer */
-  footer {
-    height: 140px; }
-
-  footer nav a {
-    display: block;
-    margin-bottom: 10px; }
-
   /* Home Page - Detail */
   .detail {
     padding-bottom: 140px; }

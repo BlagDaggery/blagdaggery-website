@@ -1,5 +1,5 @@
 footer {
-	background-color: $asphault;
+	background-color: $primary-1;
 	height: 60px;
 	text-align: center;
 	clear: all;
@@ -13,10 +13,20 @@ footer {
 			display: inline-block;
 			margin: 0 15px 0 15px;
 			text-decoration: none;
-			color: $sidewalk;
+			color: $primary-2;
 			&:hover {
 				text-decoration: underline;
 			}
 		}
 	}
+}
+
+@media (max-width: 650px) {
+    footer {
+    	height: 140px;
+    	nav a {
+    		display: block;
+    		margin-bottom: 10px;
+    	}
+    }
 }
