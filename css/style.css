@@ -10,49 +10,56 @@ header {
   text-align: center;
   color: #cecec2;
   padding-bottom: 20px; }
-  header #brand {
-    width: 100%; }
-    header #brand h1 {
-      padding: 10px 0 0 0; }
-  header #menu-expand {
-    display: none; }
-  header nav {
+
+#brand {
+  width: 100%; }
+  #brand h1 {
+    padding: 10px 0 0 0; }
+
+#menu-expand {
+  display: none; }
+
+#nav {
+  width: 100%; }
+  #nav nav a {
+    margin: 2.5px;
     display: inline-block;
-    margin: 5px 5px 0 0; }
-    header nav a {
-      border: 1px solid;
-      text-decoration: none;
-      color: #cecec2;
-      padding: 10px 30px;
-      display: inline-block; }
-      header nav a:hover {
-        background-color: #58834d;
-        transition: background .25s; }
+    border: 1px solid;
+    text-decoration: none;
+    color: #cecec2;
+    padding: 10px 30px;
+    display: inline-block; }
+    #nav nav a:hover {
+      background-color: #58834d;
+      transition: background .25s; }
 
 @media (max-width: 650px) {
   header {
-    padding-bottom: 0; }
-    header nav a {
-      display: none;
-      margin-bottom: 10px; }
-    header #brand {
-      width: 50%;
-      float: left;
-      text-align: left;
-      font-size: 75%; }
-      header #brand h1 {
-        margin: 0 0 0 20px; }
-    header #menu-expand {
-      width: 50%;
-      float: right;
-      text-align: right;
-      font-size: 75%;
-      display: inline-block; }
-      header #menu-expand h1 {
-        padding: 10px 0 0 0;
-        margin: 0 20px 0 0; }
-        header #menu-expand h1:hover {
-          cursor: pointer; } }
+    font-size: 75%; }
+
+  #nav {
+    display: none; }
+    #nav nav {
+      margin-top: 5px; }
+      #nav nav a {
+        display: block; }
+
+  #brand {
+    width: 50%;
+    float: left;
+    text-align: left; }
+    #brand h1 {
+      margin: 0 0 0 20px; }
+
+  #menu-expand {
+    width: 50%;
+    text-align: right;
+    display: inline-block; }
+    #menu-expand h1 {
+      padding: 10px 0 0 0;
+      margin: 0 20px 0 0; }
+      #menu-expand h1:hover {
+        cursor: pointer; } }
 footer {
   background-color: #515860;
   height: 60px;

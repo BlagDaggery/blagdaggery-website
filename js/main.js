@@ -3,7 +3,7 @@
 
 var main = function() {
 	$(document).on("click", "#menu-expand", function() {
-		$("header > nav > a").css("display", "block");
+		$("#nav").toggle();
 	});
 }
 
