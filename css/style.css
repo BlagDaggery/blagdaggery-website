@@ -34,11 +34,10 @@ header {
       transition: background .25s; }
 
 @media (max-width: 650px) {
-  header {
-    font-size: 75%; }
-
   #nav {
-    display: none; }
+    display: none;
+    width: 75%;
+    margin: 10px auto 0; }
     #nav nav {
       margin-top: 5px; }
       #nav nav a {
@@ -47,14 +46,16 @@ header {
   #brand {
     width: 50%;
     float: left;
-    text-align: left; }
+    text-align: left;
+    font-size: 75%; }
     #brand h1 {
       margin: 0 0 0 20px; }
 
   #menu-expand {
     width: 50%;
     text-align: right;
-    display: inline-block; }
+    display: inline-block;
+    font-size: 75%; }
     #menu-expand h1 {
       padding: 10px 0 0 0;
       margin: 0 20px 0 0; }
