@@ -16,11 +16,11 @@ html, body {
 	position: relative;
 }
 
-/* Home Page - Hero */
+// Home Page - Hero
 .hero {
 	text-align: center;
 	height: 350px;
-	background: url(../img/maine-panorama-home-hero.jpg) no-repeat center center;
+	background: url(../img/maine-panorama-home-hero-v2.jpg) no-repeat center center;
 	background-size: cover;
 	color: $primary-1;
 	h1 {
@@ -28,7 +28,7 @@ html, body {
 	}
 }
 
-/* Home Page - Detail */
+// Home Page - Detail
 .detail {
 	margin-top: 0;
 	background-color: $primary-2;
@@ -39,7 +39,7 @@ html, body {
 
 
 .column {
-	width: 35%;
+	width: 40%;
 	display: inline-block;
 	text-align: center;
 }
@@ -51,7 +51,7 @@ html, body {
 		text-decoration: none;
 		img {
 			margin: 0 auto 0;
-			width: 85%;
+			width: 90%;
 			height: auto;
 			border: 2px solid transparent;
 		}
@@ -64,61 +64,61 @@ html, body {
 	}
 }
 
-/* Article Pages */
+// Article Pages
 .article {
 	background-color: $primary-2;
 	color: $primary-1;
 	padding-bottom: 60px;
-	.headline {
+}
+
+.headline {
+	text-align: center;
+	h1 {
+		padding-top: 30px;
 		text-align: center;
-		h1 {
-			padding-top: 30px;
-			text-align: center;
-		}
-		img {
-			width: 40%;
-			height: auto;
-		}
 	}
-	.content {
+	img {
 		width: 40%;
-		height: 100%;
-		margin: auto;
-		padding: 0 0 10px 0;
-		.menu {
-			margin-top: 20px;
-			.menu-text {
-				padding: 5px;
-                // Blaine: if possible, you want to nest less, rather than nest more.
-                // These "a" styles will produce this selector: ".article .content .menu .menu-text a"
-                // which is a selector with 5 level specificity, making it harder to override elsewhere in the website
-                // you could consider moving the ".menu-text" block out of the ".menu"
-                // There are def pros and cons. Using this method, it clearly demonstrates that .menu-text is an element that is
-                // inside of .menu, which is inside of .content.
-                // However, very specific and powerful CSS rules can become unwieldy as an application grows 
- 				a {
-					text-decoration: none;
-					color: $primary-1;
-					&:hover {
-						text-decoration: underline;
-					}
-				}
-				hr {
-					color: $primary-1;
-				}
+		height: auto;
+	}
+}
+
+.content {
+	width: 40%;
+	height: 100%;
+	margin: auto;
+	padding: 0 0 10px 0;
+}
+
+.menu {
+	margin-top: 20px;
+	.menu-text {
+		padding: 5px;
+			a {
+			text-decoration: none;
+			color: $primary-1;
+			&:hover {
+				text-decoration: underline;
 			}
+		}
+		hr {
+			color: $primary-1;
 		}
 	}
 }
 
+// Mobile Styles
 
-// Blaine: change this to use the new breakpoint mixin that I added (@mobile) in _variables.scss
+@include mobile {
+	
+	// Home Page
+	.hero {
+		height: 200px;
+		h1 {
+			padding: 30px 0 0 0;
+		}
+	}
 
-@media (max-width: 650px) {
-    /* Header */
-    
-    /* Footer */
-    /* Home Page - Detail */
     .detail {
     	padding-bottom: 140px;
     	.column {
@@ -126,7 +126,8 @@ html, body {
         	width: 100%;
         }
     }
-    /* Article */
+
+    // Article Pages
     .article {
     	padding-bottom: 140px;
     	.headline img {

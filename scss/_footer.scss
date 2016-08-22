@@ -21,7 +21,7 @@ footer {
 	}
 }
 
-@media (max-width: 650px) {
+@include mobile {
     footer {
     	height: 140px;
     	nav a {

@@ -6,9 +6,9 @@ p {
   line-height: 1.4; }
 
 header {
-  background-color: #515860;
+  background-color: #142F5A;
   text-align: center;
-  color: #cecec2;
+  color: #CECEC2;
   padding-bottom: 20px; }
 
 #brand {
@@ -19,6 +19,9 @@ header {
 #menu-expand {
   display: none; }
 
+#menu-collapse {
+  display: none; }
+
 #nav {
   width: 100%; }
   #nav nav a {
@@ -26,14 +29,14 @@ header {
     display: inline-block;
     border: 1px solid;
     text-decoration: none;
-    color: #cecec2;
+    color: #CECEC2;
     padding: 10px 30px;
     display: inline-block; }
     #nav nav a:hover {
-      background-color: #58834d;
+      background-color: #558F5C;
       transition: background .25s; }
 
-@media (max-width: 650px) {
+@media (max-width: 699px) {
   #nav {
     display: none;
     width: 75%;
@@ -60,9 +63,19 @@ header {
       padding: 10px 0 0 0;
       margin: 0 20px 0 0; }
       #menu-expand h1:hover {
+        cursor: pointer; }
+
+  #menu-collapse {
+    text-align: right;
+    display: none;
+    font-size: 75%; }
+    #menu-collapse h1 {
+      padding: 10px 0 0 0;
+      margin: 0 20px 0 0; }
+      #menu-collapse h1:hover {
         cursor: pointer; } }
 footer {
-  background-color: #515860;
+  background-color: #142F5A;
   height: 60px;
   text-align: center;
   clear: all;
@@ -76,11 +89,11 @@ footer {
       display: inline-block;
       margin: 0 15px 0 15px;
       text-decoration: none;
-      color: #cecec2; }
+      color: #CECEC2; }
       footer nav a:hover {
         text-decoration: underline; }
 
-@media (max-width: 650px) {
+@media (max-width: 699px) {
   footer {
     height: 140px; }
     footer nav a {
@@ -91,91 +104,92 @@ html, body {
   margin: 0;
   font-family: sans-serif;
   height: 100%;
-  background-color: #cecec2; }
+  background-color: #CECEC2; }
 
 #wrapper {
   min-height: 100%;
   position: relative; }
 
-/* Home Page - Hero */
 .hero {
   text-align: center;
   height: 350px;
-  background: url(../img/maine-panorama-home-hero.jpg) no-repeat center center;
+  background: url(../img/maine-panorama-home-hero-v2.jpg) no-repeat center center;
   background-size: cover;
-  color: #515860; }
+  color: #142F5A; }
   .hero h1 {
     padding: 70px 0 0 0; }
 
-/* Home Page - Detail */
 .detail {
   margin-top: 0;
-  background-color: #cecec2;
-  color: #515860;
+  background-color: #CECEC2;
+  color: #142F5A;
   text-align: center;
   padding-bottom: 60px; }
 
 .column {
-  width: 35%;
+  width: 40%;
   display: inline-block;
   text-align: center; }
 
 .detail-container {
   padding: 20px; }
   .detail-container a {
-    color: #515860;
+    color: #142F5A;
     text-decoration: none; }
     .detail-container a img {
       margin: 0 auto 0;
-      width: 85%;
+      width: 90%;
       height: auto;
       border: 2px solid transparent; }
     .detail-container a:hover {
       text-decoration: underline; }
       .detail-container a:hover img {
-        border: 2px solid #515860; }
+        border: 2px solid #142F5A; }
 
-/* Article Pages */
 .article {
-  background-color: #cecec2;
-  color: #515860;
+  background-color: #CECEC2;
+  color: #142F5A;
   padding-bottom: 60px; }
-  .article .headline {
-    text-align: center; }
-    .article .headline h1 {
-      padding-top: 30px;
-      text-align: center; }
-    .article .headline img {
-      width: 40%;
-      height: auto; }
-  .article .content {
-    width: 40%;
-    height: 100%;
-    margin: auto;
-    padding: 0 0 10px 0; }
-    .article .content .menu {
-      margin-top: 20px; }
-      .article .content .menu .menu-text {
-        padding: 5px; }
-        .article .content .menu .menu-text a {
-          text-decoration: none;
-          color: #515860; }
-          .article .content .menu .menu-text a:hover {
-            text-decoration: underline; }
-        .article .content .menu .menu-text hr {
-          color: #515860; }
 
-@media (max-width: 650px) {
-  /* Header */
-  /* Footer */
-  /* Home Page - Detail */
+.headline {
+  text-align: center; }
+  .headline h1 {
+    padding-top: 30px;
+    text-align: center; }
+  .headline img {
+    width: 40%;
+    height: auto; }
+
+.content {
+  width: 40%;
+  height: 100%;
+  margin: auto;
+  padding: 0 0 10px 0; }
+
+.menu {
+  margin-top: 20px; }
+  .menu .menu-text {
+    padding: 5px; }
+    .menu .menu-text a {
+      text-decoration: none;
+      color: #142F5A; }
+      .menu .menu-text a:hover {
+        text-decoration: underline; }
+    .menu .menu-text hr {
+      color: #142F5A; }
+
+@media (max-width: 699px) {
+  .hero {
+    height: 200px; }
+    .hero h1 {
+      padding: 30px 0 0 0; }
+
   .detail {
     padding-bottom: 140px; }
     .detail .column {
       display: block;
       width: 100%; }
 
-  /* Article */
   .article {
     padding-bottom: 140px; }
     .article .headline img {

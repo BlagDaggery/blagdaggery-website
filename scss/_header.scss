@@ -16,6 +16,10 @@ header {
 	display: none;
 }
 
+#menu-collapse {
+	display: none;
+}
+
 #nav {
     width: 100%;
     nav {
@@ -35,7 +39,7 @@ header {
     }
 }
 
-@media (max-width: 650px) {
+@include mobile {
 	#nav {
         display: none;
         width: 75%;
@@ -70,7 +74,18 @@ header {
 				cursor: pointer;
 			}
 		}
+	}
+		#menu-collapse {
+		text-align: right;
+		display: none;
+		font-size: $mobile-h1-size;
+		h1 {
+			padding: 10px 0 0 0;
+			margin: 0 20px 0 0;
+			&:hover {
+				cursor: pointer;
+			}
+		}
 	}  
+
 }
-
-
