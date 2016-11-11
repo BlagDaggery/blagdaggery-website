@@ -107,6 +107,17 @@ html, body {
 	}
 }
 
+#click-to-play {
+	text-align: center;
+	margin-top: 20px;
+	a {
+		border: 1px solid $primary-1;
+		padding: 10px;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
 // Mobile Styles
 
 @include mobile {

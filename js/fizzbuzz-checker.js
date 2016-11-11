@@ -20,7 +20,7 @@ var main = function() {
 			return false;
 			clear;
 	    } else {
-	        var result = "<p><b>" + value + "</b></p><p>Well...that was boring...try again!</p>";
+	        var result = "<p><b>" + value + "</b></p><p>Well that was boring...try again!</p>";
 			$(result).prependTo(resultArea);
 			return false;
 			clear;
