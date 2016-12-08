@@ -1,91 +1,66 @@
 header {
 	background-color: $primary-1;
-	text-align: center;
 	color: $primary-2;
-    padding-bottom: 20px;
 }
 
-#brand {
+#menu-row {
 	width: 100%;
-	h1 {
-		padding: 10px 0 0 0;
+}
+
+#menu-h2 {
+	margin-bottom: 0;
+}
+
+#branded-link{
+	width: 48%;
+	display: inline-block;
+	text-align: left;
+	a {
+		text-decoration: none;
+		color: $primary-2;
 	}
 }
 
-#menu-expand {
-	display: none;
+#menu-link {
+	width: 48%;
+	display: inline-block;
+	text-align: right;
+	&:hover{
+		cursor: pointer;
+	}
 }
 
-#menu-collapse {
-	display: none;
-}
 
 #nav {
+	text-align: center;
     width: 100%;
-    nav {
-    	a {
-            margin: 2.5px;
-            display: inline-block;
-        	border: 1px solid;
-    		text-decoration: none;
-    		color: $primary-2;
-    		padding: 10px 30px;
-    	    display: inline-block;
-    	    &:hover {
-    	    	background-color: $accent-1;
-    	    	transition: background .25s;
-    	    }
-    	}
-    }
+    display: none;
+    padding-bottom: 10px;
+	a {
+        margin: 2.5px;
+        display: block;
+    	border: 1px solid;
+		text-decoration: none;
+		color: $primary-2;
+		padding: 10px 30px;
+	    &:hover {
+	    	background-color: $accent-1;
+	    	transition: background .25s;
+	    }
+	}
 }
 
+
 @include mobile {
-	#nav {
-        display: none;
-        width: 75%;
-        margin: 10px auto 0;
-        nav {
-            margin-top: 5px;
-            a {
-                display: block;
-            }
-        }
-    }
-
-	#brand {
-		width: 50%;
-		float: left;
-		text-align: left;
+	#menu-link {
 		font-size: $mobile-h1-size;
-		h1 {
-			margin: 0 0 0 20px;
-		}
 	}
 
-	#menu-expand {
-		width: 50%;
-		text-align: right;
-		display: inline-block;
+	#branded-link {
 		font-size: $mobile-h1-size;
-		h1 {
-			padding: 10px 0 0 0;
-			margin: 0 20px 0 0;
-			&:hover {
-				cursor: pointer;
-			}
-		}
 	}
-		#menu-collapse {
-		text-align: right;
-		display: none;
-		font-size: $mobile-h1-size;
-		h1 {
-			padding: 10px 0 0 0;
-			margin: 0 20px 0 0;
-			&:hover {
-				cursor: pointer;
-			}
-		}
-	}  
 
+	#nav a {
+		display: block;
+	}
 }

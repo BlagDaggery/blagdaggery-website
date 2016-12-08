@@ -16,6 +16,28 @@ html, body {
 	position: relative;
 }
 
+#menu-row {
+	text-align: center;
+	width: 100%;
+}
+
+#menu-h2 {
+	margin-bottom: 0;
+}
+
+.action-button {
+	border: 1px solid;
+	text-decoration: none;
+	color: $primary-2;
+	padding: 10px 30px;
+	background-color: $primary-1;
+	&:hover {
+		background-color: $accent-1;
+		transition: background .25s;
+	}
+}
+
+
 // Home Page - Hero
 .hero {
 	text-align: center;
