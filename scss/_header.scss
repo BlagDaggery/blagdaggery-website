@@ -4,32 +4,26 @@ header {
 }
 
 #menu-row {
+	text-align: center;
 	width: 100%;
-}
-
-#menu-h2 {
-	margin-bottom: 0;
+	a {
+		font-size: 22.5px;
+		text-decoration: none;
+		color: $primary-2;
+	}
 }
 
 #branded-link{
 	width: 48%;
 	display: inline-block;
 	text-align: left;
-	a {
-		text-decoration: none;
-		color: $primary-2;
-	}
 }
 
 #menu-link {
 	width: 48%;
 	display: inline-block;
 	text-align: right;
-	&:hover{
-		cursor: pointer;
-	}
 }
-
 
 #nav {
 	text-align: center;

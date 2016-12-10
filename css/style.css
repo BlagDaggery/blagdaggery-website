@@ -10,25 +10,22 @@ header {
   color: #CECEC2; }
 
 #menu-row {
+  text-align: center;
   width: 100%; }
-
-#menu-h2 {
-  margin-bottom: 0; }
+  #menu-row a {
+    font-size: 22.5px;
+    text-decoration: none;
+    color: #CECEC2; }
 
 #branded-link {
   width: 48%;
   display: inline-block;
   text-align: left; }
-  #branded-link a {
-    text-decoration: none;
-    color: #CECEC2; }
 
 #menu-link {
   width: 48%;
   display: inline-block;
   text-align: right; }
-  #menu-link:hover {
-    cursor: pointer; }
 
 #nav {
   text-align: center;
@@ -90,13 +87,6 @@ html, body {
 #wrapper {
   min-height: 100%;
   position: relative; }
-
-#menu-row {
-  text-align: center;
-  width: 100%; }
-
-#menu-h2 {
-  margin-bottom: 0; }
 
 .action-button {
   border: 1px solid;
