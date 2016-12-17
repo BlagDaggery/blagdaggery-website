@@ -131,6 +131,26 @@ html, body {
 		}
 	}
 }
+
+// Dynamic Calendar
+.calendar{
+	border: 1px $primary-1 solid;
+	text-align: center;
+}
+
+.month {
+	background-color: $accent-1;
+	color: $primary-2;
+}
+
+.days-of-week {
+	div {
+		display: inline-block;
+		border: solid $primary-1;
+		border-width: 0 1px 0 1px;
+	}
+}
+
 // Mobile Styles
 
 @include mobile {

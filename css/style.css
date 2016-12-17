@@ -175,6 +175,19 @@ html, body {
     #click-to-play a:hover {
       cursor: pointer; }
 
+.calendar {
+  border: 1px #142F5A solid;
+  text-align: center; }
+
+.month {
+  background-color: #558F5C;
+  color: #CECEC2; }
+
+.days-of-week div {
+  display: inline-block;
+  border: solid #142F5A;
+  border-width: 0 1px 0 1px; }
+
 @media (max-width: 699px) {
   .hero {
     height: 200px; }
