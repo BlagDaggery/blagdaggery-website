@@ -186,7 +186,13 @@ html, body {
 .days-of-week div {
   display: inline-block;
   border: solid #142F5A;
-  border-width: 0 1px 0 1px; }
+  border-width: 0 1px 0 1px;
+  margin-left: 0;
+  margin-right: 0; }
+
+.days div {
+  display: inline-block;
+  border: solid #142F5A 1px; }
 
 @media (max-width: 699px) {
   .hero {

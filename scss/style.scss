@@ -148,6 +148,15 @@ html, body {
 		display: inline-block;
 		border: solid $primary-1;
 		border-width: 0 1px 0 1px;
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+.days {
+	div {
+		display: inline-block;
+		border: solid $primary-1 1px;
 	}
 }
 
