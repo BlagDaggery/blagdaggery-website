@@ -133,14 +133,34 @@ html, body {
 }
 
 // Dynamic Calendar
-.calendar{
-	border: 1px $primary-1 solid;
+.calendar-controls {
+	label {
+		font-size: 80%;
+	}
+	div {
+		display: inline-block;
+		margin: 0 5px 0 5px;
+	}
+}
+
+.calendar-zone {
 	text-align: center;
 }
 
-.month {
-	background-color: $accent-1;
-	color: $primary-2;
+.calendar{
+	border: 1px $primary-1 solid;
+	text-align: center;
+	margin: 0 auto 10px;
+	th {
+		background-color: $accent-1;
+	}
+	td {
+		padding: 12px;
+	}
+}
+
+.adjacent-month {
+	background-color: grey;
 }
 
 .days-of-week {

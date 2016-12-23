@@ -25,69 +25,168 @@
 			</div>
 			<div class="content">
 				<p>I've created a calendar with this table here, but it really takes too much effort to create a calendar for a specific month. Rather than hand-making a calendar for any given month, I should figure out a way to make the computer generate the calendar for me.</p>
-				<table>
-					<thead>
-						<tr>
-							<th colspan="7">August</th>
-						</tr>
-						<tr>
-							<th>Mon</th>
-							<th>Tue</th>
-							<th>Wed</th>
-							<th>Thu</th>
-							<th>Fri</th>
-							<th>Sat</th>
-							<th>Sun</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-							<td>4</td>
-							<td>5</td>
-							<td>6</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>8</td>
-							<td>9</td>
-							<td>10</td>
-							<td>11</td>
-							<td>12</td>
-							<td>13</td>
-							<td>14</td>
-						</tr>
-						<tr>
-							<td>15</td>
-							<td>16</td>
-							<td>17</td>
-							<td>18</td>
-							<td>19</td>
-							<td>20</td>
-							<td>21</td>
-						</tr>
-						<tr>
-							<td>22</td>
-							<td>23</td>
-							<td>24</td>
-							<td>25</td>
-							<td>26</td>
-							<td>27</td>
-							<td>28</td>
-						</tr>
-						<tr>
-							<td>29</td>
-							<td>30</td>
-							<td>31</td>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-							<td>4</td>
-						</tr>
-					</tbody>
-				</table>
+				<hr/>
+				<form class="calendar-controls">
+					<div>
+						<label for="location">Location:<br/>
+							<select id="location" required>
+								<option value="" disabled selected>Select Location</option>
+								<option value="charlottesville">Charlottesville</option>
+								<option value="dc-area">DC Area</option>
+							</select>
+						</label>
+					</div>
+					<div>
+						<label for="format">Format:<br/>
+							<select id="format" required>
+								<option value="" disabled selected>Select Format</option>
+								<option value="emba">EMBA</option>
+								<option value="gemba">GEMBA</option>
+							</select>
+						</label>
+					</div>
+					<div>
+						<label for="residency">Residency:<br/>
+							<select id="residency" required>
+								<option value="" disabled selected>Select Residency</option>
+								<option value="emba">Global Residency</option>
+								<option value="gemba">No Global Residency</option>
+							</select>
+						</label>
+					</div>
+					<div>
+						<button class="action-button">Submit</button>
+					</div>
+				</form>
+				<hr/>
+				<div class="calendar-zone">
+					<table class="calendar">
+						<thead>
+							<tr>
+								<th colspan="7">August 2016</th>
+							</tr>
+							<tr>
+								<th>Mon</th>
+								<th>Tue</th>
+								<th>Wed</th>
+								<th>Thu</th>
+								<th>Fri</th>
+								<th>Sat</th>
+								<th>Sun</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="this-month">1</td>
+								<td class="this-month">2</td>
+								<td class="this-month">3</td>
+								<td class="this-month">4</td>
+								<td class="this-month">5</td>
+								<td class="this-month">6</td>
+								<td class="this-month">7</td>
+							</tr>
+							<tr>
+								<td class="this-month">8</td>
+								<td class="this-month">9</td>
+								<td class="this-month">10</td>
+								<td class="this-month">11</td>
+								<td class="this-month">12</td>
+								<td class="this-month">13</td>
+								<td class="this-month">14</td>
+							</tr>
+							<tr>
+								<td class="this-month">15</td>
+								<td class="this-month">16</td>
+								<td class="this-month">17</td>
+								<td class="this-month">18</td>
+								<td class="this-month">19</td>
+								<td class="this-month">20</td>
+								<td class="this-month">21</td>
+							</tr>
+							<tr>
+								<td class="this-month">22</td>
+								<td class="this-month">23</td>
+								<td class="this-month">24</td>
+								<td class="this-month">25</td>
+								<td class="this-month">26</td>
+								<td class="this-month">27</td>
+								<td class="this-month">28</td>
+							</tr>
+							<tr>
+								<td class="this-month">29</td>
+								<td class="this-month">30</td>
+								<td class="this-month">31</td>
+								<td class="adjacent-month">1</td>
+								<td class="adjacent-month">2</td>
+								<td class="adjacent-month">3</td>
+								<td class="adjacent-month">4</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="calendar">
+						<thead>
+							<tr>
+								<th colspan="7">September 2016</th>
+							</tr>
+							<tr>
+								<th>Mon</th>
+								<th>Tue</th>
+								<th>Wed</th>
+								<th>Thu</th>
+								<th>Fri</th>
+								<th>Sat</th>
+								<th>Sun</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="adjacent-month">29</td>
+								<td class="adjacent-month">30</td>
+								<td class="adjacent-month">31</td>
+								<td class="this-month">1</td>
+								<td class="this-month">2</td>
+								<td class="this-month">3</td>
+								<td class="this-month">4</td>
+							</tr>
+							<tr>
+								<td class="this-month">5</td>
+								<td class="this-month">6</td>
+								<td class="this-month">7</td>
+								<td class="this-month">8</td>
+								<td class="this-month">9</td>
+								<td class="this-month">10</td>
+								<td class="this-month">11</td>
+							</tr>
+							<tr>
+								<td class="this-month">12</td>
+								<td class="this-month">13</td>
+								<td class="this-month">14</td>
+								<td class="this-month">15</td>
+								<td class="this-month">16</td>
+								<td class="this-month">17</td>
+								<td class="this-month">18</td>
+							</tr>
+							<tr>
+								<td class="this-month">19</td>
+								<td class="this-month">20</td>
+								<td class="this-month">21</td>
+								<td class="this-month">22</td>
+								<td class="this-month">23</td>
+								<td class="this-month">24</td>
+								<td class="this-month">25</td>
+							</tr>
+							<tr>
+								<td class="this-month">26</td>
+								<td class="this-month">27</td>
+								<td class="this-month">28</td>
+								<td class="this-month">29</td>
+								<td class="this-month">30</td>
+								<td class="adjacent-month">1</td>
+								<td class="adjacent-month">2</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div><!--content-->
 		</section>
 		<footer>
