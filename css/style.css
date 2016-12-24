@@ -168,12 +168,38 @@ html, body {
 
 #click-to-play {
   text-align: center;
-  margin-top: 20px; }
-  #click-to-play a {
-    border: 1px solid #142F5A;
-    padding: 10px; }
-    #click-to-play a:hover {
-      cursor: pointer; }
+  margin: 50px auto 50px;
+  border: 1px solid #558F5C;
+  padding: 10px;
+  color: #558F5C;
+  background-color: #272822;
+  font-size: 120%; }
+  #click-to-play:hover {
+    cursor: pointer; }
+
+#slaying-results {
+  background-color: #272822;
+  color: #558F5C; }
+
+#status-row {
+  width: 100%;
+  text-align: center; }
+
+#player-hp {
+  width: 48%;
+  display: inline-block;
+  text-align: left; }
+
+#dragon-hp {
+  width: 48%;
+  display: inline-block;
+  text-align: right; }
+
+#story-zone {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; }
 
 .calendar-controls label {
   font-size: 80%; }

@@ -122,14 +122,48 @@ html, body {
 
 #click-to-play {
 	text-align: center;
-	margin-top: 20px;
-	a {
-		border: 1px solid $primary-1;
-		padding: 10px;
-		&:hover {
-			cursor: pointer;
-		}
+	margin: 50px auto 50px;
+	border: 1px solid $accent-1;
+	padding: 10px;
+	color: $accent-1;
+	background-color: $accent-4;
+	font-size: 120%;
+	&:hover {
+		cursor: pointer;
 	}
+}
+
+// Dragon Slayer V2
+#slaying-results {
+	background-color: $accent-4;
+	color: $accent-1;
+}
+
+#status-row {
+	width: 100%;
+	text-align: center;
+}
+
+#player-hp {
+	width: 48%;
+	display: inline-block;
+	text-align: left;
+}
+#dragon-hp {
+	width: 48%;
+	display: inline-block;
+	text-align: right;
+}
+
+#story-zone {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#credits {
+
 }
 
 // Dynamic Calendar
