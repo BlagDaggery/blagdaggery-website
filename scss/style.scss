@@ -2,6 +2,8 @@
 @import "typography";
 @import "header";
 @import "footer";
+@import "dragon-slayer-v2";
+@import "dynamic-calendar";
 
 html, body {
 	padding: 0;
@@ -28,6 +30,10 @@ html, body {
 	}
 }
 
+#credits {
+	font-size: 50%;
+	margin-left: 5px;
+}
 
 // Home Page - Hero
 .hero {
@@ -133,86 +139,7 @@ html, body {
 	}
 }
 
-// Dragon Slayer V2
-#slaying-results {
-	background-color: $accent-4;
-	color: $accent-1;
-}
 
-#status-row {
-	width: 100%;
-	text-align: center;
-}
-
-#player-hp {
-	width: 48%;
-	display: inline-block;
-	text-align: left;
-}
-#dragon-hp {
-	width: 48%;
-	display: inline-block;
-	text-align: right;
-}
-
-#story-zone {
-	width: 50%;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
-
-#credits {
-
-}
-
-// Dynamic Calendar
-.calendar-controls {
-	label {
-		font-size: 80%;
-	}
-	div {
-		display: inline-block;
-		margin: 0 5px 0 5px;
-	}
-}
-
-.calendar-zone {
-	text-align: center;
-}
-
-.calendar{
-	border: 1px $primary-1 solid;
-	text-align: center;
-	margin: 0 auto 10px;
-	th {
-		background-color: $accent-1;
-	}
-	td {
-		padding: 12px;
-	}
-}
-
-.adjacent-month {
-	background-color: grey;
-}
-
-.days-of-week {
-	div {
-		display: inline-block;
-		border: solid $primary-1;
-		border-width: 0 1px 0 1px;
-		margin-left: 0;
-		margin-right: 0;
-	}
-}
-
-.days {
-	div {
-		display: inline-block;
-		border: solid $primary-1 1px;
-	}
-}
 
 // Mobile Styles
 

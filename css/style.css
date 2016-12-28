@@ -77,6 +77,62 @@ footer {
     footer nav a {
       display: block;
       margin-bottom: 10px; } }
+#slaying-results {
+  background-color: #272822;
+  color: #558F5C; }
+
+#status-row {
+  width: 100%;
+  text-align: center; }
+
+#player-hp {
+  width: 48%;
+  display: inline-block;
+  text-align: left; }
+
+#dragon-hp {
+  width: 48%;
+  display: inline-block;
+  text-align: right; }
+
+#story-zone {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; }
+
+.calendar-controls label {
+  font-size: 80%; }
+.calendar-controls div {
+  display: inline-block;
+  margin: 0 5px 0 5px; }
+
+.calendar-zone {
+  text-align: center; }
+
+.calendar {
+  border: 1px #142F5A solid;
+  text-align: center;
+  margin: 0 auto 10px; }
+  .calendar th {
+    background-color: #558F5C; }
+  .calendar td {
+    padding: 12px; }
+
+.adjacent-month {
+  background-color: grey; }
+
+.days-of-week div {
+  display: inline-block;
+  border: solid #142F5A;
+  border-width: 0 1px 0 1px;
+  margin-left: 0;
+  margin-right: 0; }
+
+.days div {
+  display: inline-block;
+  border: solid #142F5A 1px; }
+
 html, body {
   padding: 0;
   margin: 0;
@@ -97,6 +153,10 @@ html, body {
   .action-button:hover {
     background-color: #558F5C;
     transition: background .25s; }
+
+#credits {
+  font-size: 50%;
+  margin-left: 5px; }
 
 .hero {
   text-align: center;
@@ -176,62 +236,6 @@ html, body {
   font-size: 120%; }
   #click-to-play:hover {
     cursor: pointer; }
-
-#slaying-results {
-  background-color: #272822;
-  color: #558F5C; }
-
-#status-row {
-  width: 100%;
-  text-align: center; }
-
-#player-hp {
-  width: 48%;
-  display: inline-block;
-  text-align: left; }
-
-#dragon-hp {
-  width: 48%;
-  display: inline-block;
-  text-align: right; }
-
-#story-zone {
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center; }
-
-.calendar-controls label {
-  font-size: 80%; }
-.calendar-controls div {
-  display: inline-block;
-  margin: 0 5px 0 5px; }
-
-.calendar-zone {
-  text-align: center; }
-
-.calendar {
-  border: 1px #142F5A solid;
-  text-align: center;
-  margin: 0 auto 10px; }
-  .calendar th {
-    background-color: #558F5C; }
-  .calendar td {
-    padding: 12px; }
-
-.adjacent-month {
-  background-color: grey; }
-
-.days-of-week div {
-  display: inline-block;
-  border: solid #142F5A;
-  border-width: 0 1px 0 1px;
-  margin-left: 0;
-  margin-right: 0; }
-
-.days div {
-  display: inline-block;
-  border: solid #142F5A 1px; }
 
 @media (max-width: 699px) {
   .hero {

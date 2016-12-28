@@ -1,0 +1,28 @@
+// Dragon Slayer V2
+#slaying-results {
+	background-color: $accent-4;
+	color: $accent-1;
+}
+
+#status-row {
+	width: 100%;
+	text-align: center;
+}
+
+#player-hp {
+	width: 48%;
+	display: inline-block;
+	text-align: left;
+}
+#dragon-hp {
+	width: 48%;
+	display: inline-block;
+	text-align: right;
+}
+
+#story-zone {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
