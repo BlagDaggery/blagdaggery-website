@@ -1,9 +1,13 @@
-/*
 var distanceLearningColor = $accent-1;
 var weekendResidenciesColor = $accent-2;
 var globalResidencyColor = $accent-3;
 var distanceLearningSessions = 7;
+var location = $('#location').val();
+var format = $('#format').val();
+var residency = $('#residency').val();
+var distance = $('#distance');
 
+/*
 functions for highlighting different days
 distanceLearning {
 	highlight distance learning days based on cville vs dc
@@ -31,9 +35,5 @@ when the form is submitted, call the three highlight functions
 */
 
 
-/*
-Ways to Improve
-
-- Have the browser dynamically create the calendar
-
-*/
+// Ways to Improve
+// Have the browser dynamically create the calendar

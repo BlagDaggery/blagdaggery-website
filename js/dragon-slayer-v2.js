@@ -26,6 +26,8 @@ $(function () {
 
 // Use empty(); to clear the contents of the story zone before each new piece of text
 
+var main = function() {
+
 var introText1 = "<p>A Dragon has stolen all of the gold from your town!</p><p>Like a medieval bank robber of sorts...</p>";
 var introText2 = "<p>You have tracked the Dragon to the mountain caves nearby, and must fight to win back your town's gold.</p>";
 var introText3 = "<p>How you got volunteered for this, I don't know. I'm just the narrator.</p>";
@@ -44,18 +46,31 @@ var youLose5 = "<p>Don't look at me! I'm just the narrator. I can't control how 
 
 var playAgain = "<p>Would you like to play again?</p>";
 
-var main = function() {
+var showHP = function() {
+    $("#player-hp").css("display", "inline-block");
+    $("#dragon-hp").css("display", "inline-block");
+}
 
-    var slaying = true;
-    var youAttack = Math.floor(Math.random() * 2);
-    var damageThisRound = Math.floor(Math.random() * 5 + 1);
-    var dragonAttack = Math.floor(Math.random() * 5 + 1);
-    var yourHealth = 10;
-    var dragonHealth = 10;
-    var storyZone = $("#story-zone");
+var updateHP = function() {
+    $("#player-hp").html("<p>Your HP<br/>", yourHealth, "</p>");
+    $("#dragon-hp").html("<p>Dragon HP<br/>", dragonHealth, "</p>");
+}
+
+var slaying = true;
+var youAttack = Math.floor(Math.random() * 2);
+var damageThisRound = Math.floor(Math.random() * 5 + 1);
+var dragonAttack = Math.floor(Math.random() * 5 + 1);
+var yourHealth = 10;
+var dragonHealth = 10;
+var storyZone = $("#story-zone");
+
+
+
 
     $("#click-to-play").click(function() {
         $("#click-to-play").toggle();
+        showHP();
+        updateHP();
         storyZone.append(introText1);
         storyZone.append(introText2);
         storyZone.append(introText3);
@@ -65,11 +80,13 @@ var main = function() {
             if (youAttack) {
                 dragonHealth -= damageThisRound;
                 storyZone.append("<p>You hit the dragon and did " + damageThisRound + " damage.</p>");
+                
                 if (dragonHealth <= 0) {
                     storyZone.append(youWin1);
                     slaying = false;
                 } else {
                     storyZone.append("<p>The dragon has " + dragonHealth + "HP left.</p>");
+                    
                     storyZone.append("<p>You strike again!</p>");
                     youAttack = Math.floor(Math.random() * 2);
                     damageThisRound = Math.floor(Math.random() * 5 + 1);
@@ -77,6 +94,7 @@ var main = function() {
             } else {
                 yourHealth -= dragonAttack;
                 storyZone.append("<p>You missed! The dragon countered and did " + dragonAttack + " damage.</p>");
+
                 if (yourHealth <= 0) {
                     storyZone.append(youLose1);
                     slaying = false;

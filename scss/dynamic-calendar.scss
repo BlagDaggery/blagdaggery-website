@@ -45,3 +45,15 @@
 		border: solid $primary-1 1px;
 	}
 }
+
+@include mobile {
+	.calendar-controls {
+		text-align: center;
+		div {
+			display: block;
+		}
+		button {
+			margin-top: 5px;
+		}
+	}
+}

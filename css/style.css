@@ -87,12 +87,12 @@ footer {
 
 #player-hp {
   width: 48%;
-  display: inline-block;
+  display: none;
   text-align: left; }
 
 #dragon-hp {
   width: 48%;
-  display: inline-block;
+  display: none;
   text-align: right; }
 
 #story-zone {
@@ -133,6 +133,13 @@ footer {
   display: inline-block;
   border: solid #142F5A 1px; }
 
+@media (max-width: 699px) {
+  .calendar-controls {
+    text-align: center; }
+    .calendar-controls div {
+      display: block; }
+    .calendar-controls button {
+      margin-top: 5px; } }
 html, body {
   padding: 0;
   margin: 0;

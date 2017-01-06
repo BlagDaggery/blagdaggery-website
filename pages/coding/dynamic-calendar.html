@@ -24,9 +24,10 @@
 				<h1>Dynamic Calendar</h1>
 			</div>
 			<div class="content">
-				<p>I've created a calendar with this table here, but it really takes too much effort to create a calendar for a specific month. Rather than hand-making a calendar for any given month, I should figure out a way to make the computer generate the calendar for me.</p>
+				<p>Select your location, format and residency preferences below to see a sample of what your calendar could look like for a quarter.</p>
 				<hr/>
 				<form class="calendar-controls">
+					<p id="form-error"></p>
 					<div>
 						<label for="location">Location:<br/>
 							<select id="location" required>
@@ -78,9 +79,9 @@
 						<tbody>
 							<tr>
 								<td class="this-month">1</td>
-								<td class="this-month">2</td>
+								<td class="this-month distance-session">2</td>
 								<td class="this-month">3</td>
-								<td class="this-month">4</td>
+								<td class="this-month distance-session">4</td>
 								<td class="this-month">5</td>
 								<td class="this-month">6</td>
 								<td class="this-month">7</td>
