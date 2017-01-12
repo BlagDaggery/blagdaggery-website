@@ -18,6 +18,10 @@ function Calendar(month, year) {
 	this.html = '';
 }
 
+
+var MIN_CAL_ROWS = 9;
+var DAYS_PER_WEEK = 7;
+
 Calendar.prototype.generateHTML = function() {
 	// get first day of month
 	var firstDay = new Date(this.year, this.month, 1);
@@ -25,6 +29,7 @@ Calendar.prototype.generateHTML = function() {
 
 	// find number of days in month
 	var monthLength = daysInMonth[this.month];
+	var prevMonthLength = daysInMonth[this.month - 1];
 
 	// compensate for leap year
 	if(this.month === 1) {
@@ -35,29 +40,48 @@ Calendar.prototype.generateHTML = function() {
 
 	// do the header
 	var monthName = monthsLabels[this.month];
-	var html = '<table class="calendar-table">';
+	var html = '<table class="calendar">';
 	html += '<tr><th colspan="7">';
-	html += monthName + "&nbsp;" + this.year;
+	html += monthName + '&nbsp;' + this.year;
 	html += '</th></tr>';
-	html += '<tr class="calendar-header">';
+	html += '<tr>';
 	for (var i = 0; i <= 6; i++){
-		html += '<td class="calendar-header-day">';
+		html += '<th>';
 		html += daysLabels[i];
-		html += '</td>';
+		html += '</th>';
 	}
 	html += '</tr><tr>';
 
 	// start filling in the days
 	var day = 1;
-	for (var i = 0; i < 9; j++) {
-		for (var j = 0; j <= 6; j++) {
-			html += '<td class="calendar-day">';
+	var nextMonthDayCounter = 1;
+	var prevMonthDayCounter = prevMonthLength - startingDay + 1;
+
+	for (var i = 0; i < MIN_CAL_ROWS; i++) {
+		for (var j = 0; j < DAYS_PER_WEEK; j++) {
+			console.log('day: ', day, 'monthlength: ', monthLength, 'startingday: ', startingDay);
+
+
+			if (i === 0 && j < startingDay) {
+				console.log('painting last months cell');
+				html += '<td class="adjacent-month">' + prevMonthDayCounter + '</td>';
+				prevMonthDayCounter ++;
+			}
+
+
 			if (day <= monthLength && (i > 0 || j >= startingDay)) {
-				html += day;
+				console.log('painting cell');
+				html += '<td>' + day + '</td>';
 				day++;
 			}
-			html += '</td>';
+
+			if (day > monthLength && j < 6) {
+				html += '<td class="adjacent-month">' + nextMonthDayCounter + '</td>';
+				console.log(nextMonthDayCounter, j);
+				nextMonthDayCounter ++;
+			}
 		}
+
 		// stop making rows if we've run out of days
 		if (day > monthLength) {
 			break;
@@ -75,6 +99,13 @@ Calendar.prototype.getHTML = function() {
 	return this.html;
 }
 
+
+var month1 = new Calendar(7,2016);
+var month2 = new Calendar(8,2016);
+month1.generateHTML();
+month2.generateHTML();
+document.write(month1.getHTML());
+document.write(month2.getHTML());
 
 /*
 functions for highlighting different days
