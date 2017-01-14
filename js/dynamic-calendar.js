@@ -5,12 +5,16 @@
 //var location = $('#location').val();
 //var format = $('#format').val();
 //var residency = $('#residency').val();
-//var distance = $('#distance');
+//var distance = $('#distance')val();
 
-var daysLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-var monthsLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+var dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+var monthLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 var currentDate = new Date();
+
+var MIN_CAL_ROWS = 9;
+var DAYS_PER_WEEK = 7;
+
 
 function Calendar(month, year) {
 	this.month = (isNaN(month) || month == null) ? currentDate.getMonth() : month;
@@ -18,28 +22,25 @@ function Calendar(month, year) {
 	this.html = '';
 }
 
-
-var MIN_CAL_ROWS = 9;
-var DAYS_PER_WEEK = 7;
-
 Calendar.prototype.generateHTML = function() {
-	// get first day of month
-	var firstDay = new Date(this.year, this.month, 1);
-	var startingDay = firstDay.getDay();
+	
+	// Determine the starting position of the month, where 0 = Sunday, 1 = Monday, etc.
+	var declareFirstDay = new Date(this.year, this.month, 1);
+	var firstDayPosition = declareFirstDay.getDay();
 
-	// find number of days in month
+	// Select the number of days in the appropriate month from the daysInMonth array.
 	var monthLength = daysInMonth[this.month];
-	var prevMonthLength = daysInMonth[this.month - 1];
+	var previousMonthLength = daysInMonth[this.month - 1];
 
-	// compensate for leap year
+	// Check to see if it is a leap year, making February 29 days long
 	if(this.month === 1) {
-		if((this.year % 4 == 0 && this.year % 100 !=0) || this.year % 400 ==0) {
+		if((this.year % 4 === 0 && this.year % 100 !== 0) || this.year % 400 === 0) {
 			monthLength = 29;
 		}
 	}
 
-	// do the header
-	var monthName = monthsLabels[this.month];
+	// Paint the calendar header with the month name and the days of the week names.
+	var monthName = monthLabels[this.month];
 	var html = '<table class="calendar">';
 	html += '<tr><th colspan="7">';
 	html += monthName + '&nbsp;' + this.year;
@@ -47,43 +48,37 @@ Calendar.prototype.generateHTML = function() {
 	html += '<tr>';
 	for (var i = 0; i <= 6; i++){
 		html += '<th>';
-		html += daysLabels[i];
+		html += dayLabels[i];
 		html += '</th>';
 	}
 	html += '</tr><tr>';
 
-	// start filling in the days
-	var day = 1;
+	// Start filling in the dates in the appropriate cells.
+	var date = 1;
 	var nextMonthDayCounter = 1;
-	var prevMonthDayCounter = prevMonthLength - startingDay + 1;
+	var previousMonthDayCounter = previousMonthLength - firstDayPosition + 1;
 
 	for (var i = 0; i < MIN_CAL_ROWS; i++) {
 		for (var j = 0; j < DAYS_PER_WEEK; j++) {
-			console.log('day: ', day, 'monthlength: ', monthLength, 'startingday: ', startingDay);
 
-
-			if (i === 0 && j < startingDay) {
-				console.log('painting last months cell');
-				html += '<td class="adjacent-month">' + prevMonthDayCounter + '</td>';
-				prevMonthDayCounter ++;
+			if (i === 0 && j < firstDayPosition) {
+				html += '<td class="adjacent-month">' + previousMonthDayCounter + '</td>';
+				previousMonthDayCounter ++;
 			}
 
-
-			if (day <= monthLength && (i > 0 || j >= startingDay)) {
-				console.log('painting cell');
-				html += '<td>' + day + '</td>';
-				day++;
+			if (date <= monthLength && (i > 0 || j >= firstDayPosition)) {
+				html += '<td>' + date + '</td>';
+				date++;
 			}
 
-			if (day > monthLength && j < 6) {
+			if (date > monthLength && j < 6) {
 				html += '<td class="adjacent-month">' + nextMonthDayCounter + '</td>';
-				console.log(nextMonthDayCounter, j);
 				nextMonthDayCounter ++;
 			}
 		}
 
 		// stop making rows if we've run out of days
-		if (day > monthLength) {
+		if (date > monthLength) {
 			break;
 		} else {
 			html += '</tr><tr>';
@@ -100,11 +95,13 @@ Calendar.prototype.getHTML = function() {
 }
 
 
+
 var month1 = new Calendar(7,2016);
-var month2 = new Calendar(8,2016);
 month1.generateHTML();
-month2.generateHTML();
 document.write(month1.getHTML());
+
+var month2 = new Calendar(8,2016);
+month2.generateHTML();
 document.write(month2.getHTML());
 
 /*
@@ -133,7 +130,3 @@ main function
 when the form is submitted, call the three highlight functions
 
 */
-
-
-// Ways to Improve
-// Have the browser dynamically create the calendar
