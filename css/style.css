@@ -11,7 +11,8 @@ header {
 
 #menu-row {
   text-align: center;
-  width: 100%; }
+  width: 100%;
+  padding-bottom: 4px; }
   #menu-row a {
     font-size: 22.5px;
     text-decoration: none;
@@ -121,6 +122,18 @@ footer {
 
 .adjacent-month {
   background-color: grey; }
+
+.cville-distance {
+  background-color: none; }
+
+.cville-residency {
+  background-color: none; }
+
+.dc-distance {
+  background-color: none; }
+
+.dc-residency {
+  background-color: none; }
 
 @media (max-width: 699px) {
   .calendar-controls {

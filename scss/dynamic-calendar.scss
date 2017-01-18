@@ -29,10 +29,25 @@
 	background-color: grey;
 }
 
-
-.distance {
-
+.cville-distance {
+	background-color: none;
 }
+
+.cville-residency {
+	background-color: none;
+}
+
+
+.dc-distance {
+	background-color: none;
+}
+
+.dc-residency {
+	background-color: none;
+}
+
+
+
 
 @include mobile {
 	.calendar-controls {

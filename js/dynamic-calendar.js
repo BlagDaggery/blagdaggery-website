@@ -1,12 +1,3 @@
-//var distanceLearningColor = $accent-1;
-//var weekendResidenciesColor = $accent-2;
-//var globalResidencyColor = $accent-3;
-//var distanceLearningSessions = 7;
-//var location = $('#location').val();
-//var format = $('#format').val();
-//var residency = $('#residency').val();
-//var distance = $('#distance')val();
-
 var dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 var monthLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -66,9 +57,22 @@ Calendar.prototype.generateHTML = function() {
 				previousMonthDayCounter ++;
 			}
 
+
 			if (date <= monthLength && (i > 0 || j >= firstDayPosition)) {
-				html += '<td>' + date + '</td>';
-				date++;
+
+				if (j === 1 || j === 3) {
+					console.log("Cville Distance!", "date: " + date)
+					html += '<td class="cville-distance">' + date + '</td>';
+					date++;
+				} else if (j === 2 || j === 4) {
+					console.log("DC Distance!", "date: " + date);
+					html += '<td class="dc-distance">' + date + '</td>';
+					date++;
+				} else {
+					console.log("Normal cell", "date: " + date)
+					html += '<td>' + date + '</td>';
+					date++;
+				}
 			}
 
 			if (date > monthLength && j < 6) {
@@ -96,13 +100,22 @@ Calendar.prototype.getHTML = function() {
 
 
 
-var month1 = new Calendar(7,2016);
+var month1 = new Calendar(4,2017);
 month1.generateHTML();
 document.write(month1.getHTML());
 
-var month2 = new Calendar(8,2016);
+var month2 = new Calendar(5,2017);
 month2.generateHTML();
 document.write(month2.getHTML());
+
+//var distanceLearningColor = $accent-1;
+//var weekendResidenciesColor = $accent-2;
+//var globalResidencyColor = $accent-3;
+//var distanceLearningSessions = 7;
+//var location = $('#location').val();
+//var format = $('#format').val();
+//var residency = $('#residency').val();
+//var distance = $('#distance')val();
 
 /*
 functions for highlighting different days
@@ -124,9 +137,4 @@ highlightGlobalResidency {
 		- Residency vs No Resdiency
 
 }
-
-main function
-
-when the form is submitted, call the three highlight functions
-
 */
