@@ -59,19 +59,57 @@ Calendar.prototype.generateHTML = function() {
 
 
 			if (date <= monthLength && (i > 0 || j >= firstDayPosition)) {
+				
+				if (i < 3) {
+					if (j === 1 || j === 3) {
+						console.log("Cville Distance!", "date: " + date)
+						html += '<td class="cville-distance">' + date + '</td>';
+						date++;
+					} else if (j === 2 || j === 4) {
+						console.log("DC Distance!", "date: " + date);
+						html += '<td class="dc-distance">' + date + '</td>';
+						date++;
+					} else {
+						console.log("Normal cell", "date: " + date)
+						html += '<td>' + date + '</td>';
+						date++;
+					}
+				}
 
-				if (j === 1 || j === 3) {
-					console.log("Cville Distance!", "date: " + date)
-					html += '<td class="cville-distance">' + date + '</td>';
-					date++;
-				} else if (j === 2 || j === 4) {
-					console.log("DC Distance!", "date: " + date);
-					html += '<td class="dc-distance">' + date + '</td>';
-					date++;
-				} else {
-					console.log("Normal cell", "date: " + date)
-					html += '<td>' + date + '</td>';
-					date++;
+				if (i === 3) {
+					if (j === 4) {
+						console.log("Cville Weekend Residency");
+						html += '<td class="cville-residency">' + date + '</td>';
+						date++;
+					} else if (j > 4) {
+						console.log("Cville and DC Residency");
+						html += '<td class="cville-residency dc-residency">' + date + '</td>';
+						date++;
+					} else {
+						console.log("Normal cell", "date: " + date)
+						html += '<td>' + date + '</td>';
+						date++;
+					}
+				}
+
+				if (i > 3) {
+					if (j === 0) {
+						console.log("DC Residency");
+						html += '<td class="dc-residency">' + date + '</td>';
+						date++;
+					} else if (j === 1 || j === 3) {
+						console.log("Cville Distance!", "date: " + date)
+						html += '<td class="cville-distance">' + date + '</td>';
+						date++;
+					} else if (j === 2 || j === 4) {
+						console.log("DC Distance!", "date: " + date);
+						html += '<td class="dc-distance">' + date + '</td>';
+						date++;
+					} else {
+						console.log("Normal cell", "date: " + date)
+						html += '<td>' + date + '</td>';
+						date++;
+					}
 				}
 			}
 
@@ -100,11 +138,11 @@ Calendar.prototype.getHTML = function() {
 
 
 
-var month1 = new Calendar(4,2017);
+var month1 = new Calendar(7,2016);
 month1.generateHTML();
 document.write(month1.getHTML());
 
-var month2 = new Calendar(5,2017);
+var month2 = new Calendar(8,2016);
 month2.generateHTML();
 document.write(month2.getHTML());
 
