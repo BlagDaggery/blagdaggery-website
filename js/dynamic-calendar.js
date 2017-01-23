@@ -1,3 +1,10 @@
+// Add form functionality for just two months, then tackle redesign below
+
+// Redesign needed! Need one function that will build 4 calendars based on form input
+// Another nested for loop?
+// Uses the same checks for building a month, but once a month is done, +1 the monthLabels and daysInMonth and do it again
+// For loops are expensive though...
+
 var dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 var monthLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -146,6 +153,7 @@ var month2 = new Calendar(8,2016);
 month2.generateHTML();
 document.write(month2.getHTML());
 
+
 //var distanceLearningColor = $accent-1;
 //var weekendResidenciesColor = $accent-2;
 //var globalResidencyColor = $accent-3;
@@ -157,22 +165,25 @@ document.write(month2.getHTML());
 
 /*
 functions for highlighting different days
+
+if not all fields submitted, throw error message up
+"Please select all fields."
+
 distanceLearning {
 	highlight distance learning days based on cville vs dc
-	count the number of Tuesdays and Thursdays and highlight every:
-		- X & Y Tuesday
-		- X & Y Thursday
+	change css background color
 }
 
 weekendResidencies {
 	highlight weekend residencies based on Cville vs DC
 	count the number of weekends, and highlight the X weekend
+	change css background color
 }
 
 highlightGlobalResidency {
 	highlight the global residency based on the selection of:
 		- EMBA vs GEMBA
 		- Residency vs No Resdiency
-
+	change css background color
 }
 */
