@@ -1,9 +1,8 @@
-// Add form functionality for just two months, then tackle redesign below
+// Next Steps:
+// Add form functionality for just two months, then start V2
+// Since this script is loaded before my jQuery script, jQuery won't work
+// Find way to accomplish what you want without jQuery
 
-// Redesign needed! Need one function that will build 4 calendars based on form input
-// Another nested for loop?
-// Uses the same checks for building a month, but once a month is done, +1 the monthLabels and daysInMonth and do it again
-// For loops are expensive though...
 
 var dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 var monthLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -69,15 +68,12 @@ Calendar.prototype.generateHTML = function() {
 				
 				if (i < 3) {
 					if (j === 1 || j === 3) {
-						console.log("Cville Distance!", "date: " + date)
 						html += '<td class="cville-distance">' + date + '</td>';
 						date++;
 					} else if (j === 2 || j === 4) {
-						console.log("DC Distance!", "date: " + date);
 						html += '<td class="dc-distance">' + date + '</td>';
 						date++;
 					} else {
-						console.log("Normal cell", "date: " + date)
 						html += '<td>' + date + '</td>';
 						date++;
 					}
@@ -85,15 +81,12 @@ Calendar.prototype.generateHTML = function() {
 
 				if (i === 3) {
 					if (j === 4) {
-						console.log("Cville Weekend Residency");
 						html += '<td class="cville-residency">' + date + '</td>';
 						date++;
 					} else if (j > 4) {
-						console.log("Cville and DC Residency");
 						html += '<td class="cville-residency dc-residency">' + date + '</td>';
 						date++;
 					} else {
-						console.log("Normal cell", "date: " + date)
 						html += '<td>' + date + '</td>';
 						date++;
 					}
@@ -101,19 +94,15 @@ Calendar.prototype.generateHTML = function() {
 
 				if (i > 3) {
 					if (j === 0) {
-						console.log("DC Residency");
 						html += '<td class="dc-residency">' + date + '</td>';
 						date++;
 					} else if (j === 1 || j === 3) {
-						console.log("Cville Distance!", "date: " + date)
 						html += '<td class="cville-distance">' + date + '</td>';
 						date++;
 					} else if (j === 2 || j === 4) {
-						console.log("DC Distance!", "date: " + date);
 						html += '<td class="dc-distance">' + date + '</td>';
 						date++;
 					} else {
-						console.log("Normal cell", "date: " + date)
 						html += '<td>' + date + '</td>';
 						date++;
 					}
@@ -153,15 +142,23 @@ var month2 = new Calendar(8,2016);
 month2.generateHTML();
 document.write(month2.getHTML());
 
+var distanceLearningColor = "#558F5C";
+var weekendResidenciesColor = "#99CCFB";
+var globalResidencyColor = "#56B6F3";
 
-//var distanceLearningColor = $accent-1;
-//var weekendResidenciesColor = $accent-2;
-//var globalResidencyColor = $accent-3;
-//var distanceLearningSessions = 7;
 //var location = $('#location').val();
 //var format = $('#format').val();
 //var residency = $('#residency').val();
-//var distance = $('#distance')val();
+//var distance = $('#distance').val();
+
+$('#calendar-controls').submit(function() {
+	console.log("Form submitted!")
+	if ($('#location').val() === "Charlottesville") {
+		$('.cville-distance').css("background-color", distanceLearningColor);
+	}
+});
+
+
 
 /*
 functions for highlighting different days
@@ -187,3 +184,9 @@ highlightGlobalResidency {
 	change css background color
 }
 */
+
+// Version 2 Planning
+// Redesign needed! Need one function that will build 4 calendars based on form input
+// Another nested for loop?
+// Uses the same checks for building a month, but once a month is done, +1 the monthLabels and daysInMonth and do it again
+// For loops are expensive though...
