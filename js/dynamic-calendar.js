@@ -1,7 +1,11 @@
 // Next Steps:
-// Add form functionality for just two months, then start V2
-// Since this script is loaded before my jQuery script, jQuery won't work
-// Find way to accomplish what you want without jQuery
+// Add form functionality
+// Need to make it so my js code can interact with the form field values
+// What kind of form is this?
+// How should I submit the data?
+// And where should I send it?
+// How do I make it so the page doesn't reload on submission
+// Is this AJAX?
 
 
 var dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -12,6 +16,9 @@ var currentDate = new Date();
 var MIN_CAL_ROWS = 9;
 var DAYS_PER_WEEK = 7;
 
+var distanceLearningColor = "#558F5C";
+var weekendResidenciesColor = "#99CCFB";
+var globalResidencyColor = "#56B6F3";
 
 function Calendar(month, year) {
 	this.month = (isNaN(month) || month == null) ? currentDate.getMonth() : month;
@@ -136,30 +143,16 @@ Calendar.prototype.getHTML = function() {
 
 var month1 = new Calendar(7,2016);
 month1.generateHTML();
-document.write(month1.getHTML());
+$(".calendar-zone").append(month1.getHTML()); 
+
 
 var month2 = new Calendar(8,2016);
 month2.generateHTML();
-document.write(month2.getHTML());
-
-var distanceLearningColor = "#558F5C";
-var weekendResidenciesColor = "#99CCFB";
-var globalResidencyColor = "#56B6F3";
-
-//var location = $('#location').val();
-//var format = $('#format').val();
-//var residency = $('#residency').val();
-//var distance = $('#distance').val();
-
-$('#calendar-controls').submit(function() {
-	console.log("Form submitted!")
-	if ($('#location').val() === "Charlottesville") {
-		$('.cville-distance').css("background-color", distanceLearningColor);
-	}
-});
+$(".calendar-zone").append(month2.getHTML());
 
 
 
+// Logic for Form Submission
 /*
 functions for highlighting different days
 
