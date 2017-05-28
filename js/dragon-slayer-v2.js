@@ -1,6 +1,6 @@
 // This is my expanded version of the Dragon Slayer game from Codecademy.
 
-// Upon clicking the START button, show yourHealth, dragonHealth, and intro text.
+// Upon clicking the button, show yourHealth, dragonHealth, and intro text.
 // Slowly cycle through the story, reducing yourHealth and dragonHealth as the battle continues.
 // Once one of you dies, show the appropriate Game Over text, and display a button for them to play again
 
@@ -28,11 +28,14 @@ $(function () {
 
 var main = function() {
 
-var introText1 = "<p>A Dragon has stolen all of the gold from your town!</p><p>Like a medieval bank robber of sorts...</p>";
-var introText2 = "<p>You have tracked the Dragon to the mountain caves nearby, and must fight to win back your town's gold.</p>";
-var introText3 = "<p>How you got volunteered for this, I don't know. I'm just the narrator.</p>";
-var introText4 = "<p>Undefeated so far, the Dragon confidently prepares to defend his treasure as you enter his lair.</p>";
-var introText5 = "<p>Ready? Fight!</p>";
+var slaying = true;
+var storyZone = $("#story-zone");
+var controlZone = $("#control-zone");
+
+// Variables for story text
+var startText = "<p>Type 'START' to begin.</p>"
+var introText = "<p>A Dragon has stolen all of the gold from your town!</p><p>Like a medieval bank robber of sorts...</p><p>You have tracked the Dragon to the mountain caves nearby, and must fight to win back your town's gold.</p><p>How you got volunteered for this, I don't know. I'm just the narrator.</p><p>Undefeated so far, the Dragon confidently prepares to defend his treasure as you enter his lair.</p><p>Ready? Fight!</p><p>Which weapon would you like to use?</p><p>Type 'SWORD', 'ARROW', or 'CABBAGE' to attack.</p><hr/>";
+var errorText = "<p>Error! Try again.</p><hr/>"
 
 var youWin1 = "<p>The Dragon screeches in pain as you land the final blow!</p><p>You have won!</p>";
 var youWin2 = "<p>You return home to a hero's welcome, and your town is suddenly rich with all of the Dragon's treasure.</p>";
@@ -46,36 +49,52 @@ var youLose5 = "<p>Don't look at me! I'm just the narrator. I can't control how 
 
 var playAgain = "<p>Would you like to play again?</p>";
 
-var showHP = function() {
+// Variables for character inventory
+var arrowsInQuiver = 10;
+var cabbages = 3;
+
+// Variables for whether an attack hits
+var swordAttack = Math.floor(Math.random() * 5);
+var arrowAttack = Math.floor(Math.random() * 2);
+var cabbageAttack = Math.floor(Math.random() * 2);
+
+var dragonBreathesFire = Math.floor(Math.random() * 5);
+var dragonSwipesClaws = Math.floor(Math.random() * 2);
+
+// Variables for damage done
+var swordDamage = Math.floor(Math.random() * 5 + 1);
+var arrowDamage = Math.floor(Math.random() * 5 + 1);
+var cabbageDamage = Math.floor(Math.random() * 5 + 1);
+
+var dragonFireDamage = Math.floor(Math.random() * 5 + 1);
+var dragonClawDamage = Math.floor(Math.random() * 5 + 1);
+
+
+var yourHealth = 30;
+var dragonHealth = 30;
+
+
+function showHP() {
     $("#player-hp").css("display", "inline-block");
     $("#dragon-hp").css("display", "inline-block");
 }
 
-var updateHP = function() {
-    $("#player-hp").html("<p>Your HP<br/>", yourHealth, "</p>");
-    $("#dragon-hp").html("<p>Dragon HP<br/>", dragonHealth, "</p>");
+function updateHP() {
+    $("#player-hp").html("<p>Your HP<br/>" + yourHealth + "</p>");
+    $("#dragon-hp").html("<p>Dragon HP<br/>" + dragonHealth + "</p>");
 }
-
-var slaying = true;
-var youAttack = Math.floor(Math.random() * 2);
-var damageThisRound = Math.floor(Math.random() * 5 + 1);
-var dragonAttack = Math.floor(Math.random() * 5 + 1);
-var yourHealth = 10;
-var dragonHealth = 10;
-var storyZone = $("#story-zone");
-
-
 
 
     $("#click-to-play").click(function() {
         $("#click-to-play").toggle();
         showHP();
         updateHP();
-        storyZone.append(introText1);
-        storyZone.append(introText2);
-        storyZone.append(introText3);
-        storyZone.append(introText4);
-        storyZone.append(introText5);
+        storyZone.prepend(introText);
+    });
+
+    // Reveal each piece of the story and give player options for actions using buttons and switch statements
+
+/*
         while(slaying) {
             if (youAttack) {
                 dragonHealth -= damageThisRound;
@@ -105,8 +124,8 @@ var storyZone = $("#story-zone");
                     dragonAttack = Math.floor(Math.random() * 5 + 1);
                 }
             }
-        }
-    });
-}
+        } */
+} 
+
 
 $(document).ready(main);
