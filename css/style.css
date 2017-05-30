@@ -96,11 +96,12 @@ footer {
   display: none;
   text-align: right; }
 
-#story-zone, #control-zone {
+#story-zone {
   width: 80%;
-  margin-left: auto;
+  text-align: center;
+  padding-top: 3px;
   margin-right: auto;
-  text-align: center; }
+  margin-left: auto; }
 
 .calendar-controls label {
   font-size: 80%; }

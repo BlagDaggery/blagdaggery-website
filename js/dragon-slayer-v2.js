@@ -33,9 +33,8 @@ var main = function() {
     var controlZone = $("#control-zone");
 
     // Variables for story text
-    var startText = "<p>Type 'START' to begin.</p>";
-    var introText = "<p>A Dragon has stolen all of the gold from your town!</p><p>Like a medieval bank robber of sorts...</p><p>You have tracked the Dragon to the mountain caves nearby, and must fight to win back your town's gold.</p><p>How you got volunteered for this, I don't know. I'm just the narrator.</p><p>Undefeated so far, the Dragon confidently prepares to defend his treasure as you enter his lair.</p><p>Ready? Fight!</p><p>Which weapon would you like to use?</p><hr/>";
-    var playerChoices = "<button id='sword'>SWORD</button><button id='arrows'>ARROWS</button><button id='cabbage'>CABBAGE</button><hr/>";
+    var introText = "<p>A Dragon has stolen all of the gold from your town!</p><p>Like a medieval bank robber of sorts...</p><p>You have tracked the Dragon to the mountain caves nearby, and must fight to win back your town's gold.</p><p>How you got volunteered for this, I don't know. I'm just the narrator.</p><p>Undefeated so far, the Dragon confidently prepares to defend his treasure as you enter his lair.</p><button id='battle-start'>Let's get it on!</button>";
+    var playerChoices = "<p>Choose your attack.</p><button id='sword'>SWORD</button><button id='arrows'>ARROWS</button><button id='cabbage'>CABBAGE</button>";
 
     var youWin1 = "<p>The Dragon screeches in pain as you land the final blow!</p><p>You have won!</p>";
     var youWin2 = "<p>You return home to a hero's welcome, and your town is suddenly rich with all of the Dragon's treasure.</p>";
@@ -54,21 +53,20 @@ var main = function() {
     var cabbages = 3;
 
     // Variables for whether an attack hits
-    var swordAttack = Math.floor(Math.random() * 5);
+    var swordAttack = Math.floor(Math.random() * 2);
     var arrowAttack = Math.floor(Math.random() * 2);
     var cabbageAttack = Math.floor(Math.random() * 2);
 
-    var dragonBreathesFire = Math.floor(Math.random() * 5);
+    var dragonBreathesFire = Math.floor(Math.random() * 2);
     var dragonSwipesClaws = Math.floor(Math.random() * 2);
 
     // Variables for damage done
     var swordDamage = Math.floor(Math.random() * 5 + 1);
-    var arrowDamage = Math.floor(Math.random() * 5 + 1);
-    var cabbageDamage = Math.floor(Math.random() * 5 + 1);
+    var arrowDamage = Math.floor(Math.random() * 7 + 1);
+    var cabbageDamage = Math.floor(Math.random() * 10 + 1);
 
-    var dragonFireDamage = Math.floor(Math.random() * 5 + 1);
-    var dragonClawDamage = Math.floor(Math.random() * 5 + 1);
-
+    var dragonFireDamage = Math.floor(Math.random() * 7 + 1);
+    var dragonClawDamage = Math.floor(Math.random() * 7 + 1);
 
     var yourHealth = 30;
     var dragonHealth = 30;
@@ -80,15 +78,33 @@ var main = function() {
     }
 
     function updateHP() {
-        $("#player-hp").html("<p>Your HP<br/>" + yourHealth + "</p>");
-        $("#dragon-hp").html("<p>Dragon HP<br/>" + dragonHealth + "</p>");
+        $("#player-hp").html("<p>Your HP: " + yourHealth + "</p>");
+        $("#dragon-hp").html("<p>Dragon HP: " + dragonHealth + "</p>");
     }
 
     $("#click-to-play").click(function() {
         $(this).toggle();
-        showHP();
-        updateHP();
-        storyZone.prepend(introText,playerChoices);
+        storyZone.prepend(introText);
+        $("#battle-start").click(function() {
+            storyZone.empty();
+            console.log("The battle has begun!");
+            showHP();
+            updateHP();
+            storyZone.append(playerChoices);
+
+            $("button").click(function() {
+                switch(this.id) {
+                    case 'sword':
+                        console.log("Heck yeah! A sword!");
+                        break;
+                    case 'arrows':
+                        console.log("Get it, Legolas!");
+                        break;
+                    case 'cabbage':
+                        console.log("Cabbage? Really?");
+                }
+            });
+        });
     });
 } 
 
