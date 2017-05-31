@@ -96,9 +96,59 @@ var main = function() {
                 switch(this.id) {
                     case 'sword':
                         console.log("Heck yeah! A sword!");
+                        if(swordAttack) {
+                            dragonHealth -= swordDamage;
+                            console.log("The dragon now has " + dragonHealth + " HP!");
+                            updateHP();
+                            if(dragonHealth <= 0) {
+                                console.log("you won!");
+                            } else {
+                                swordAttack = Math.floor(Math.random() * 2);
+                                swordDamage = Math.floor(Math.random() * 5 + 1);
+                            }
+                        } else {
+                            console.log("You lunge forward with your sword, but swing wide!");
+                            swordAttack = Math.floor(Math.random() * 2);
+                            swordDamage = Math.floor(Math.random() * 5 + 1);
+                        }
+                        if(dragonSwipesClaws){
+                            yourHealth -= dragonClawDamage;
+                            console.log("The Dragon done gotcha with his claws!");
+                            updateHP();
+                            if(yourHealth <= 0) {
+                                console.log("You are dead. Game over!");
+                            } else {
+                                dragonSwipesClaws = Math.floor(Math.random() * 2);
+                                dragonClawDamage = Math.floor(Math.random() * 7 + 1);
+                            }
+                        } else {
+                            console.log("The Dragon swiped at you with his claws, but you dodged it!");
+                            dragonSwipesClaws = Math.floor(Math.random() * 2);
+                            dragonClawDamage = Math.floor(Math.random() * 7 + 1);
+                        }
                         break;
                     case 'arrows':
                         console.log("Get it, Legolas!");
+                        if(arrowAttack){
+                            dragonHealth -= arrowDamage;
+                            console.log("You shoot an arrow, and it hits!");
+                            updateHP();
+                            if(dragonHealth <= 0) {
+                                console.log("you won!");
+                            } else {
+                                arrowAttack = Math.floor(Math.random() * 2);
+                                arrowDamage = Math.floor(Math.random() * 5 + 1);
+                            }
+                        } else {
+                            console.log("The arrow missed!");
+                            arrowAttack = Math.floor(Math.random() * 2);
+                            arrowDamage = Math.floor(Math.random() * 5 + 1);
+                        }
+
+                        if(dragonBreathesFire) {
+                            yourHealth -= dragonFireDamage;
+                            console.log("A burst of flame comes from the dragon's mouth. It burns!");
+                        }
                         break;
                     case 'cabbage':
                         console.log("Cabbage? Really?");
