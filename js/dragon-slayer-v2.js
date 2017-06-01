@@ -50,22 +50,23 @@ var main = function() {
 
     // Variables for character inventory
     var arrowsInQuiver = 10;
-    var cabbages = 3;
+    var cabbagesOnHand = 3;
 
     // Variables for whether an attack hits
-    var swordAttack = Math.floor(Math.random() * 2);
     var arrowAttack = Math.floor(Math.random() * 2);
+    var swordAttack = Math.floor(Math.random() * 3);
     var cabbageAttack = Math.floor(Math.random() * 2);
 
     var dragonBreathesFire = Math.floor(Math.random() * 2);
-    var dragonSwipesClaws = Math.floor(Math.random() * 2);
+    var dragonSwipesClaws = Math.floor(Math.random() * 3);
+    var dragonWingFlap = Math.floor(Math.random() * 2);
 
     // Variables for damage done
-    var swordDamage = Math.floor(Math.random() * 5 + 1);
-    var arrowDamage = Math.floor(Math.random() * 7 + 1);
+    var swordDamage = Math.floor(Math.random() * 7 + 1);
+    var arrowDamage = Math.floor(Math.random() * 5 + 1);
     var cabbageDamage = Math.floor(Math.random() * 10 + 1);
 
-    var dragonFireDamage = Math.floor(Math.random() * 7 + 1);
+    var dragonFireDamage = Math.floor(Math.random() * 5 + 1);
     var dragonClawDamage = Math.floor(Math.random() * 7 + 1);
 
     var yourHealth = 30;
@@ -111,6 +112,7 @@ var main = function() {
                             swordAttack = Math.floor(Math.random() * 2);
                             swordDamage = Math.floor(Math.random() * 5 + 1);
                         }
+
                         if(dragonSwipesClaws){
                             yourHealth -= dragonClawDamage;
                             console.log("The Dragon done gotcha with his claws!");
@@ -122,7 +124,7 @@ var main = function() {
                                 dragonClawDamage = Math.floor(Math.random() * 7 + 1);
                             }
                         } else {
-                            console.log("The Dragon swiped at you with his claws, but you dodged it!");
+                            console.log("The Dragon swipes at you with his claws, but you dodge it!");
                             dragonSwipesClaws = Math.floor(Math.random() * 2);
                             dragonClawDamage = Math.floor(Math.random() * 7 + 1);
                         }
@@ -147,7 +149,18 @@ var main = function() {
 
                         if(dragonBreathesFire) {
                             yourHealth -= dragonFireDamage;
-                            console.log("A burst of flame comes from the dragon's mouth. It burns!");
+                            console.log("A burst of flame comes from the dragon's mouth. It burns as you run away!");
+                            updateHP();
+                            if(yourHealth <= 0) {
+                                console.log("You are dead. Game over!");
+                            } else {
+                                dragonBreathesFire = Math.floor(Math.random() * 2);
+                                dragonFireDamage = Math.floor(Math.random() * 7 + 1);
+                            }
+                        } else {
+                            console.log("The dragon spews fire from it's mouth, but you scramble and escape the blaze.");
+                            dragonBreathesFire = Math.floor(Math.random() * 2);
+                            dragonFireDamage = Math.floor(Math.random() * 7 + 1);
                         }
                         break;
                     case 'cabbage':
