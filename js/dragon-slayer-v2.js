@@ -35,39 +35,31 @@ var main = function() {
     // Variables for story text
     var introText = "<p>A Dragon has stolen all of the gold from your town!</p><p>Like a medieval bank robber of sorts...</p><p>You have tracked the Dragon to the mountain caves nearby, and must fight to win back your town's gold.</p><p>How you got volunteered for this, I don't know. I'm just the narrator.</p><p>Undefeated so far, the Dragon confidently prepares to defend his treasure as you enter his lair.</p><button id='battle-start'>Let's get it on!</button>";
     var playerChoices = "<p>Choose your attack.</p><button id='sword'>SWORD</button><button id='arrows'>ARROWS</button><button id='cabbage'>CABBAGE</button>";
-
-    var youWin1 = "<p>The Dragon screeches in pain as you land the final blow!</p><p>You have won!</p>";
-    var youWin2 = "<p>You return home to a hero's welcome, and your town is suddenly rich with all of the Dragon's treasure.</p>";
-    var youWin3 = "<p>They use some of the gold to make a statue in your honor. Not bad, right?</p>";
-
-    var youLose1 = "<p>Your vision blurs as you stumble backwards and fall to the ground.</p>";
-    var youLose2 = "<p>The Dragon gloats in his victory as you slowly pass into darkness...</p><p>You are dead.</p>";
-    var youLose3 = "<p>The town remembers you fondly, but they kinda resent you a little bit.</p>";
-    var youLose4 = "<p>I mean, you lost, so they're still living in fear of the dragon. And the town is poor now.</p>";
-    var youLose5 = "<p>Don't look at me! I'm just the narrator. I can't control how your town feels.</p>";
-
+    var victoryText = "<p>The Dragon screeches in pain as you land the final blow!</p><p>You have won!</p><p>You return home to a hero's welcome, and your town is suddenly rich with all of the Dragon's treasure.</p><p>They use some of the gold to make a statue in your honor. Not bad, right?</p>";
+    var defeatText = "<p>Your vision blurs as you stumble backwards and fall to the ground, slowly passing into darkness...</p><p>The town remembers you fondly, but they kinda resent you a little bit.</p><p>I mean, you lost, so they're still living in fear of the dragon. And no one got their gold back. So...</p><p>They wait a few days before sending the next challenger...</p>";
     var playAgain = "<p>Would you like to play again?</p>";
 
     // Variables for character inventory
     var arrowsInQuiver = 10;
-    var cabbagesOnHand = 3;
+    var cabbagesOnHand = 4;
 
     // Variables for whether an attack hits
-    var arrowAttack = Math.floor(Math.random() * 2);
-    var swordAttack = Math.floor(Math.random() * 3);
+    var swordAttack = Math.floor(Math.random() * 10);
+    var arrowAttack = Math.floor(Math.random() * 5);
     var cabbageAttack = Math.floor(Math.random() * 2);
 
+    var dragonSwipesClaws = Math.floor(Math.random() * 10);
+    var dragonFlapsWings = Math.floor(Math.random() * 5);
     var dragonBreathesFire = Math.floor(Math.random() * 2);
-    var dragonSwipesClaws = Math.floor(Math.random() * 3);
-    var dragonWingFlap = Math.floor(Math.random() * 2);
 
     // Variables for damage done
-    var swordDamage = Math.floor(Math.random() * 7 + 1);
-    var arrowDamage = Math.floor(Math.random() * 5 + 1);
-    var cabbageDamage = Math.floor(Math.random() * 10 + 1);
+    var swordDamage = Math.floor(Math.random() * 3 + 1);
+    var arrowDamage = Math.floor(Math.random() * 3 + 1) + 3;
+    var cabbageDamage = Math.floor(Math.random() * 3 + 1) + 6;
 
-    var dragonFireDamage = Math.floor(Math.random() * 5 + 1);
-    var dragonClawDamage = Math.floor(Math.random() * 7 + 1);
+    var dragonClawDamage = Math.floor(Math.random() * 3 + 1);
+    var dragonWingDamage = Math.floor(Math.random() * 3 + 1) + 3;
+    var dragonFireDamage = Math.floor(Math.random() * 3 + 1) + 6;
 
     var yourHealth = 30;
     var dragonHealth = 30;
@@ -79,8 +71,17 @@ var main = function() {
     }
 
     function updateHP() {
-        $("#player-hp").html("<p>Your HP: " + yourHealth + "</p>");
-        $("#dragon-hp").html("<p>Dragon HP: " + dragonHealth + "</p>");
+        if(yourHealth > 0) {
+            $("#player-hp").html("<p>Your HP: " + yourHealth + "</p>");
+        } else {
+            $("#player-hp").html("<p>Your HP: 0</p>");
+        }
+
+        if (dragonHealth > 0) {
+            $("#dragon-hp").html("<p>Dragon HP: " + dragonHealth + "</p>");
+        } else {
+            $("#dragon-hp").html("<p>Dragon HP: 0</p>");            
+        }    
     }
 
     $("#click-to-play").click(function() {
@@ -102,7 +103,8 @@ var main = function() {
                             console.log("The dragon now has " + dragonHealth + " HP!");
                             updateHP();
                             if(dragonHealth <= 0) {
-                                console.log("you won!");
+                                storyZone.empty();
+                                storyZone.append(victoryText);
                             } else {
                                 swordAttack = Math.floor(Math.random() * 2);
                                 swordDamage = Math.floor(Math.random() * 5 + 1);
@@ -113,12 +115,13 @@ var main = function() {
                             swordDamage = Math.floor(Math.random() * 5 + 1);
                         }
 
-                        if(dragonSwipesClaws){
+                        if(dragonSwipesClaws) {
                             yourHealth -= dragonClawDamage;
                             console.log("The Dragon done gotcha with his claws!");
                             updateHP();
                             if(yourHealth <= 0) {
-                                console.log("You are dead. Game over!");
+                                storyZone.empty();
+                                storyZone.append(defeatText);
                             } else {
                                 dragonSwipesClaws = Math.floor(Math.random() * 2);
                                 dragonClawDamage = Math.floor(Math.random() * 7 + 1);
@@ -131,12 +134,13 @@ var main = function() {
                         break;
                     case 'arrows':
                         console.log("Get it, Legolas!");
-                        if(arrowAttack){
+                        if(arrowAttack) {
                             dragonHealth -= arrowDamage;
                             console.log("You shoot an arrow, and it hits!");
                             updateHP();
                             if(dragonHealth <= 0) {
-                                console.log("you won!");
+                                storyZone.empty();
+                                storyZone.append(victoryText);
                             } else {
                                 arrowAttack = Math.floor(Math.random() * 2);
                                 arrowDamage = Math.floor(Math.random() * 5 + 1);
@@ -152,7 +156,8 @@ var main = function() {
                             console.log("A burst of flame comes from the dragon's mouth. It burns as you run away!");
                             updateHP();
                             if(yourHealth <= 0) {
-                                console.log("You are dead. Game over!");
+                                storyZone.empty();
+                                storyZone.append(defeatText);
                             } else {
                                 dragonBreathesFire = Math.floor(Math.random() * 2);
                                 dragonFireDamage = Math.floor(Math.random() * 7 + 1);
@@ -165,6 +170,39 @@ var main = function() {
                         break;
                     case 'cabbage':
                         console.log("Cabbage? Really?");
+                        if(cabbageAttack) {
+                            console.log("The cabbage hits! The dragon screeches in terror!")
+                            dragonHealth -= cabbageDamage;
+                            updateHP();
+                            if(dragonHealth <= 0) {
+                                storyZone.empty();
+                                storyZone.append(victoryText);
+                            } else {
+                                cabbageAttack = Math.floor(Math.random() * 2);
+                                cabbageDamage = Math.floor(Math.random() * 5 + 1);
+                            }
+                        } else {
+                            console.log("The cabbage misses! But the dragon looks concerned...");
+                            cabbageAttack = Math.floor(Math.random() * 2);
+                            cabbageDamage = Math.floor(Math.random() * 5 + 1);
+                        }
+
+                        if (dragonFlapsWings) {
+                            console.log("The dragon flaps his wings, and the gust knocks you down!");
+                            yourHealth -= dragonWingDamage;
+                            updateHP();
+                            if(yourHealth <= 0) {
+                                storyZone.empty();
+                                storyZone.append(defeatText);
+                            } else {
+                                dragonFlapsWings = Math.floor(Math.random() * 2);
+                                dragonWingDamage = Math.floor(Math.random() * 7 + 1);
+                            }
+                        } else {
+                            console.log("The dragon flaps its wings, creating a huge gust of wind! But you stand firm.");
+                            dragonFlapsWings = Math.floor(Math.random() * 2);
+                            dragonWingDamage = Math.floor(Math.random() * 7 + 1);
+                        }
                 }
             });
         });
