@@ -86,15 +86,10 @@ footer {
   width: 100%;
   text-align: center; }
 
-#player-hp {
-  width: 48%;
+#player-hp, #dragon-hp, #arrow-inventory, #cabbage-inventory {
   display: none;
-  text-align: left; }
-
-#dragon-hp {
-  width: 48%;
-  display: none;
-  text-align: right; }
+  border: 1px solid #558F5C;
+  width: 20%; }
 
 #story-zone {
   width: 80%;

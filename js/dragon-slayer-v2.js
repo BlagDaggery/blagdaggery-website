@@ -65,22 +65,33 @@ var main = function() {
     var dragonHealth = 30;
 
 
-    function showHP() {
-        $("#player-hp").css("display", "inline-block");
-        $("#dragon-hp").css("display", "inline-block");
+    function showStats() {
+        $("#player-hp, #arrow-inventory, #cabbage-inventory, #dragon-hp").css("display", "inline-block");
     }
 
-    function updateHP() {
+    function updateStats() {
         if(yourHealth > 0) {
-            $("#player-hp").html("<p>Your HP: " + yourHealth + "</p>");
+            $("#player-hp").html("Your HP: " + yourHealth);
         } else {
-            $("#player-hp").html("<p>Your HP: 0</p>");
+            $("#player-hp").html("Your HP: 0");
+        }
+
+        if(arrowsInQuiver > 0) {
+            $("#arrow-inventory").html("Arrows: " + arrowsInQuiver);
+        } else {
+            $("#arrow-inventory").html("Arrows: 0");            
+        }
+
+        if(cabbagesOnHand > 0) {
+            $("#cabbage-inventory").html("Cabbages: " + cabbagesOnHand);
+        } else {
+            $("#cabbage-inventory").html("Cabbages: 0");            
         }
 
         if (dragonHealth > 0) {
-            $("#dragon-hp").html("<p>Dragon HP: " + dragonHealth + "</p>");
+            $("#dragon-hp").html("Dragon HP: " + dragonHealth);
         } else {
-            $("#dragon-hp").html("<p>Dragon HP: 0</p>");            
+            $("#dragon-hp").html("Dragon HP: 0");
         }    
     }
 
@@ -90,18 +101,19 @@ var main = function() {
         $("#battle-start").click(function() {
             storyZone.empty();
             console.log("The battle has begun!");
-            showHP();
-            updateHP();
+            showStats();
+            updateStats();
             storyZone.append(playerChoices);
 
             $("button").click(function() {
                 switch(this.id) {
+
                     case 'sword':
                         console.log("Heck yeah! A sword!");
                         if(swordAttack) {
                             dragonHealth -= swordDamage;
                             console.log("The dragon now has " + dragonHealth + " HP!");
-                            updateHP();
+                            updateStats();
                             if(dragonHealth <= 0) {
                                 storyZone.empty();
                                 storyZone.append(victoryText);
@@ -118,7 +130,7 @@ var main = function() {
                         if(dragonSwipesClaws) {
                             yourHealth -= dragonClawDamage;
                             console.log("The Dragon done gotcha with his claws!");
-                            updateHP();
+                            updateStats();
                             if(yourHealth <= 0) {
                                 storyZone.empty();
                                 storyZone.append(defeatText);
@@ -132,12 +144,18 @@ var main = function() {
                             dragonClawDamage = Math.floor(Math.random() * 7 + 1);
                         }
                         break;
+
                     case 'arrows':
                         console.log("Get it, Legolas!");
+                        arrowsInQuiver --;
+                        console.log("You have " + arrowsInQuiver + " arrows left.");
+                        if(arrowsInQuiver > 0) {
+
+                        }
                         if(arrowAttack) {
                             dragonHealth -= arrowDamage;
                             console.log("You shoot an arrow, and it hits!");
-                            updateHP();
+                            updateStats();
                             if(dragonHealth <= 0) {
                                 storyZone.empty();
                                 storyZone.append(victoryText);
@@ -154,7 +172,7 @@ var main = function() {
                         if(dragonBreathesFire) {
                             yourHealth -= dragonFireDamage;
                             console.log("A burst of flame comes from the dragon's mouth. It burns as you run away!");
-                            updateHP();
+                            updateStats();
                             if(yourHealth <= 0) {
                                 storyZone.empty();
                                 storyZone.append(defeatText);
@@ -168,12 +186,14 @@ var main = function() {
                             dragonFireDamage = Math.floor(Math.random() * 7 + 1);
                         }
                         break;
+
                     case 'cabbage':
                         console.log("Cabbage? Really?");
+                        cabbagesOnHand --;
                         if(cabbageAttack) {
                             console.log("The cabbage hits! The dragon screeches in terror!")
                             dragonHealth -= cabbageDamage;
-                            updateHP();
+                            updateStats();
                             if(dragonHealth <= 0) {
                                 storyZone.empty();
                                 storyZone.append(victoryText);
@@ -190,7 +210,7 @@ var main = function() {
                         if (dragonFlapsWings) {
                             console.log("The dragon flaps his wings, and the gust knocks you down!");
                             yourHealth -= dragonWingDamage;
-                            updateHP();
+                            updateStats();
                             if(yourHealth <= 0) {
                                 storyZone.empty();
                                 storyZone.append(defeatText);

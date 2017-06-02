@@ -9,15 +9,10 @@
 	text-align: center;
 }
 
-#player-hp {
-	width: 48%;
+#player-hp, #dragon-hp, #arrow-inventory, #cabbage-inventory {
 	display: none;
-	text-align: left;
-}
-#dragon-hp {
-	width: 48%;
-	display: none;
-	text-align: right;
+	border: 1px solid $accent-1;
+	width: 20%;
 }
 
 #story-zone {
