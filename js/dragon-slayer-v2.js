@@ -28,13 +28,15 @@ $(function () {
 
 var main = function() {
 
-    var slaying = true;
     var storyZone = $("#story-zone");
     var controlZone = $("#control-zone");
 
     // Variables for story text
     var introText = "<p>A Dragon has stolen all of the gold from your town!</p><p>Like a medieval bank robber of sorts...</p><p>You have tracked the Dragon to the mountain caves nearby, and must fight to win back your town's gold.</p><p>How you got volunteered for this, I don't know. I'm just the narrator.</p><p>Undefeated so far, the Dragon confidently prepares to defend his treasure as you enter his lair.</p><button id='battle-start'>Let's get it on!</button>";
-    var playerChoices = "<p>Choose your attack.</p><button id='sword'>SWORD</button><button id='arrows'>ARROWS</button><button id='cabbage'>CABBAGE</button>";
+    var allThreeWeapons = "<p>Choose your attack.</p><button id='sword'>SWORD</button><button id='arrows'>ARROWS</button><button id='cabbage'>CABBAGE</button>";
+    var swordAndArrows = "<p>Choose your attack.</p><button id='sword'>SWORD</button><button id='arrows'>ARROWS</button>";
+    var swordAndCabbage = "<p>Choose your attack.</p><button id='sword'>SWORD</button><button id='cabbage'>CABBAGE</button>";
+    var justSword = "<p>Choose your attack.</p><button id='sword'>SWORD</button>";
     var victoryText = "<p>The Dragon screeches in pain as you land the final blow!</p><p>You have won!</p><p>You return home to a hero's welcome, and your town is suddenly rich with all of the Dragon's treasure.</p><p>They use some of the gold to make a statue in your honor. Not bad, right?</p>";
     var defeatText = "<p>Your vision blurs as you stumble backwards and fall to the ground, slowly passing into darkness...</p><p>The town remembers you fondly, but they kinda resent you a little bit.</p><p>I mean, you lost, so they're still living in fear of the dragon. And no one got their gold back. So...</p><p>They wait a few days before sending the next challenger...</p>";
     var playAgain = "<p>Would you like to play again?</p>";
@@ -95,6 +97,24 @@ var main = function() {
         }    
     }
 
+    function showPlayerChoices() {
+        if (arrowsInQuiver > 0 && cabbagesOnHand > 0) {
+            storyZone.append(allThreeWeapons);
+        }
+        if (arrowsInQuiver > 0 && cabbagesOnHand <= 0) {
+            storyZone.append(swordAndArrows);
+        }
+        if (arrowsInQuiver <= 0 && cabbagesOnHand > 0) {
+            storyZone.append(swordAndCabbage);
+        }
+        if (arrowsInQuiver <= 0 && cabbagesOnHand <= 0) {
+            storyZone.append(justSword);
+        }
+    }
+
+    
+
+
     $("#click-to-play").click(function() {
         $(this).toggle();
         storyZone.prepend(introText);
@@ -103,7 +123,7 @@ var main = function() {
             console.log("The battle has begun!");
             showStats();
             updateStats();
-            storyZone.append(playerChoices);
+            showPlayerChoices();
 
             $("button").click(function() {
                 switch(this.id) {
@@ -134,6 +154,7 @@ var main = function() {
                             if(yourHealth <= 0) {
                                 storyZone.empty();
                                 storyZone.append(defeatText);
+                                slaying = false;
                             } else {
                                 dragonSwipesClaws = Math.floor(Math.random() * 2);
                                 dragonClawDamage = Math.floor(Math.random() * 7 + 1);
@@ -149,9 +170,7 @@ var main = function() {
                         console.log("Get it, Legolas!");
                         arrowsInQuiver --;
                         console.log("You have " + arrowsInQuiver + " arrows left.");
-                        if(arrowsInQuiver > 0) {
 
-                        }
                         if(arrowAttack) {
                             dragonHealth -= arrowDamage;
                             console.log("You shoot an arrow, and it hits!");
@@ -176,6 +195,7 @@ var main = function() {
                             if(yourHealth <= 0) {
                                 storyZone.empty();
                                 storyZone.append(defeatText);
+                                slaying = false;
                             } else {
                                 dragonBreathesFire = Math.floor(Math.random() * 2);
                                 dragonFireDamage = Math.floor(Math.random() * 7 + 1);
@@ -214,6 +234,7 @@ var main = function() {
                             if(yourHealth <= 0) {
                                 storyZone.empty();
                                 storyZone.append(defeatText);
+                                slaying = false;
                             } else {
                                 dragonFlapsWings = Math.floor(Math.random() * 2);
                                 dragonWingDamage = Math.floor(Math.random() * 7 + 1);
@@ -223,10 +244,12 @@ var main = function() {
                             dragonFlapsWings = Math.floor(Math.random() * 2);
                             dragonWingDamage = Math.floor(Math.random() * 7 + 1);
                         }
-                }
+                        break;
+                } // Switch Statement?
             });
         });
     });
+
 } 
 
 
