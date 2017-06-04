@@ -12,10 +12,10 @@
 #player-hp, #dragon-hp, #arrow-inventory, #cabbage-inventory {
 	display: none;
 	border: 1px solid $accent-1;
-	width: 20%;
+	padding: 2px 4px;
 }
 
-#story-zone {
+#story-zone, #control-zone {
 	width: 80%;
 	text-align: center;
 	padding-top: 3px;

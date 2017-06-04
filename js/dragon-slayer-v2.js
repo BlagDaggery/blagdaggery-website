@@ -1,30 +1,13 @@
-// This is my expanded version of the Dragon Slayer game from Codecademy.
-
-// Upon clicking the button, show yourHealth, dragonHealth, and intro text.
-// Slowly cycle through the story, reducing yourHealth and dragonHealth as the battle continues.
+// GAME PLAN
+// Upon clicking the button, show intro text & button to start the battle
+// Slowly cycle through the story, reducing yourHealth, dragonHealth, and relevant stats as the battle continues.
 // Once one of you dies, show the appropriate Game Over text, and display a button for them to play again
-
-// Instead of repeating yourself, create functions and variables that do stuff for you.
-
-/* Letter-by-Letter Text Reveal
-
-
-var showText = function (target, message, index, interval) {   
-  if (index < message.length) {
-    $(target).append(message[index++]);
-    setTimeout(function () { showText(target, message, index, interval); }, interval);
-  }
-}
-
-
-
-$(function () {
-  showText("#msg", "Hello, World!", 0, 500);
-});
-
-*/
-
 // Use empty(); to clear the contents of the story zone before each new piece of text
+
+// NEXT STEPS
+// Start adding in story text
+// Figure out a way to keep the game window a certain size (roughly)
+// Figure out how you want the player to flow through the different options
 
 var main = function() {
 
@@ -99,21 +82,15 @@ var main = function() {
 
     function showPlayerChoices() {
         if (arrowsInQuiver > 0 && cabbagesOnHand > 0) {
-            storyZone.append(allThreeWeapons);
-        }
-        if (arrowsInQuiver > 0 && cabbagesOnHand <= 0) {
-            storyZone.append(swordAndArrows);
-        }
-        if (arrowsInQuiver <= 0 && cabbagesOnHand > 0) {
-            storyZone.append(swordAndCabbage);
-        }
-        if (arrowsInQuiver <= 0 && cabbagesOnHand <= 0) {
-            storyZone.append(justSword);
+            controlZone.append(allThreeWeapons);
+        } else if (arrowsInQuiver > 0 && cabbagesOnHand <= 0) {
+            controlZone.append(swordAndArrows);
+        } else if (arrowsInQuiver <= 0 && cabbagesOnHand > 0) {
+            controlZone.append(swordAndCabbage);
+        } else if (arrowsInQuiver <= 0 && cabbagesOnHand <= 0) {
+            controlZone.append(justSword);
         }
     }
-
-    
-
 
     $("#click-to-play").click(function() {
         $(this).toggle();
@@ -124,12 +101,11 @@ var main = function() {
             showStats();
             updateStats();
             showPlayerChoices();
-
             $("button").click(function() {
                 switch(this.id) {
-
                     case 'sword':
-                        console.log("Heck yeah! A sword!");
+                        storyZone.prepend("<p>Heck yeah! A sword!</p>");
+                        console.log("Sword chosen");
                         if(swordAttack) {
                             dragonHealth -= swordDamage;
                             console.log("The dragon now has " + dragonHealth + " HP!");
@@ -211,7 +187,7 @@ var main = function() {
                         console.log("Cabbage? Really?");
                         cabbagesOnHand --;
                         if(cabbageAttack) {
-                            console.log("The cabbage hits! The dragon screeches in terror!")
+                            console.log("The cabbage hits! The dragon screeches in terror!");
                             dragonHealth -= cabbageDamage;
                             updateStats();
                             if(dragonHealth <= 0) {
@@ -246,11 +222,10 @@ var main = function() {
                         }
                         break;
                 } // Switch Statement?
-            });
-        });
-    });
-
-} 
+            }); // Attack Buttons
+        }); // Start Battle
+    }); // Click to play
+} // Main function
 
 
 $(document).ready(main);
