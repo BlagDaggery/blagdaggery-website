@@ -31,13 +31,13 @@ var main = function() {
     var dragonWingsHitText = "<p>Reeling back, the dragon flaps his wings, creating a mighty gust of wind! The wind knocks you back against a rock and you fall heavily on the ground.</p>";
     var dragonWingsMissText = "<p>The dragon flaps his wings, creating a gust of wind to knock you down, but you stand firm!</p>";
 
-    var victoryText = "<p>The Dragon screeches in pain as you land the final blow!</p><p>You have won!</p><p>You return home to a hero's welcome, and your town is suddenly rich with all of the Dragon's treasure.</p><p>They use some of the gold to make a statue in your honor. Not bad, right?</p>";
+    var victoryText = "<p>The Dragon screeches in pain as you land the final blow! You have won!</p><p>You return home to a hero's welcome, and your town is suddenly rich with all of the Dragon's treasure.</p><p>They use some of the gold to make a statue in your honor. Not bad, right?</p>";
     var defeatText = "<p>Your vision blurs as you stumble backwards and fall to the ground, slowly passing into darkness...</p><p>The town remembers you fondly, but they kinda resent you a little bit.</p><p>I mean, you lost, so they're still living in fear of the dragon. And no one got their gold back. So...</p><p>They wait a few days before sending the next challenger...</p>";
     var playAgain = "<p>Would you like to play again?</p>";
 
     // Variables for character inventory
-    var arrowsInQuiver = 10;
-    var cabbagesOnHand = 4;
+    var arrowsInQuiver = 7;
+    var cabbagesOnHand = 3;
 
     // Variables for weapon choices
     var allThreeWeapons = "<p>Choose your attack.</p><button id='sword'>SWORD</button><button id='arrows'>ARROWS</button><button id='cabbage'>CABBAGE</button>";
@@ -119,10 +119,12 @@ var main = function() {
             showStats();
             updateStats();
             showPlayerChoices();
+
             $("button").click(function() {
                 switch(this.id) {
                     case 'sword':
                         console.log("Sword chosen");
+                        storyZone.empty();
                         if(swordAttack) {
                             dragonHealth -= swordDamage;
                             storyZone.append(swordHitsText);
@@ -133,13 +135,13 @@ var main = function() {
                                 controlZone.empty();
                                 slaying = false;
                             } else {
-                                swordAttack = Math.floor(Math.random() * 2);
-                                swordDamage = Math.floor(Math.random() * 5 + 1);
+                                swordAttack = Math.floor(Math.random() * 10);
+                                swordDamage = Math.floor(Math.random() * 3 + 1);
                             }
                         } else {
                             storyZone.append(swordMissesText);
-                            swordAttack = Math.floor(Math.random() * 2);
-                            swordDamage = Math.floor(Math.random() * 5 + 1);
+                            swordAttack = Math.floor(Math.random() * 10);
+                            swordDamage = Math.floor(Math.random() * 3 + 1);
                         }
 
                         if(dragonSwipesClaws) {
@@ -152,24 +154,25 @@ var main = function() {
                                 controlZone.empty();
                                 slaying = false;
                             } else {
-                                dragonSwipesClaws = Math.floor(Math.random() * 2);
-                                dragonClawDamage = Math.floor(Math.random() * 7 + 1);
+                                dragonSwipesClaws = Math.floor(Math.random() * 10);
+                                dragonClawDamage = Math.floor(Math.random() * 3 + 1);
                             }
                         } else {
                             storyZone.append(dragonClawsMissText);
-                            dragonSwipesClaws = Math.floor(Math.random() * 2);
-                            dragonClawDamage = Math.floor(Math.random() * 7 + 1);
+                            dragonSwipesClaws = Math.floor(Math.random() * 10);
+                            dragonClawDamage = Math.floor(Math.random() * 3 + 1);
                         }
                         break;
 
                     case 'arrows':
                         console.log("Get it, Legolas!");
+                        storyZone.empty();
                         arrowsInQuiver --;
                         console.log("You have " + arrowsInQuiver + " arrows left.");
 
                         if(arrowAttack) {
                             dragonHealth -= arrowDamage;
-                            console.log("You shoot an arrow, and it hits!");
+                            storyZone.append(arrowHitsText);
                             updateStats();
                             if(dragonHealth <= 0) {
                                 storyZone.empty();
@@ -177,17 +180,17 @@ var main = function() {
                                 controlZone.empty();
                                 slaying = false;
                             } else {
-                                arrowAttack = Math.floor(Math.random() * 2);
-                                arrowDamage = Math.floor(Math.random() * 5 + 1);
+                                arrowAttack = Math.floor(Math.random() * 5);
+                                arrowDamage = Math.floor(Math.random() * 3 + 1) + 3;
                             }
                         } else {
-                            console.log("The arrow missed!");
-                            arrowAttack = Math.floor(Math.random() * 2);
-                            arrowDamage = Math.floor(Math.random() * 5 + 1);
+                            storyZone.append(arrowMissesText);
+                            arrowAttack = Math.floor(Math.random() * 5);
+                            arrowDamage = Math.floor(Math.random() * 3 + 1) + 3;
                         }
 
                         if (dragonFlapsWings) {
-                            console.log("The dragon flaps his wings, and the gust knocks you down!");
+                            storyZone.append(dragonWingsHitText);
                             yourHealth -= dragonWingDamage;
                             updateStats();
                             if(yourHealth <= 0) {
@@ -196,21 +199,22 @@ var main = function() {
                                 controlZone.empty();
                                 slaying = false;
                             } else {
-                                dragonFlapsWings = Math.floor(Math.random() * 2);
-                                dragonWingDamage = Math.floor(Math.random() * 7 + 1);
+                                dragonFlapsWings = Math.floor(Math.random() * 5);
+                                dragonWingDamage = Math.floor(Math.random() * 3 + 1) + 3;
                             }
                         } else {
-                            console.log("The dragon flaps its wings, creating a huge gust of wind! But you stand firm.");
-                            dragonFlapsWings = Math.floor(Math.random() * 2);
-                            dragonWingDamage = Math.floor(Math.random() * 7 + 1);
+                            storyZone.append(dragonWingsMissText);
+                            dragonFlapsWings = Math.floor(Math.random() * 5);
+                            dragonWingDamage = Math.floor(Math.random() * 3 + 1) + 3;
                         }
                         break;
 
                     case 'cabbage':
                         console.log("Cabbage? Really?");
+                        storyZone.empty();
                         cabbagesOnHand --;
                         if(cabbageAttack) {
-                            console.log("The cabbage hits! The dragon screeches in terror!");
+                            storyZone.append(cabbageHitsText);
                             dragonHealth -= cabbageDamage;
                             updateStats();
                             if(dragonHealth <= 0) {
@@ -220,16 +224,16 @@ var main = function() {
                                 slaying = false;
                             } else {
                                 cabbageAttack = Math.floor(Math.random() * 2);
-                                cabbageDamage = Math.floor(Math.random() * 5 + 1);
+                                cabbageDamage = Math.floor(Math.random() * 3 + 1) + 6;
                             }
                         } else {
-                            console.log("The cabbage misses! But the dragon looks concerned...");
+                            storyZone.append(cabbageMissesText);
                             cabbageAttack = Math.floor(Math.random() * 2);
-                            cabbageDamage = Math.floor(Math.random() * 5 + 1);
+                            cabbageDamage = Math.floor(Math.random() * 3 + 1) + 6;
                         }
                         if(dragonBreathesFire) {
                             yourHealth -= dragonFireDamage;
-                            console.log("A burst of flame comes from the dragon's mouth. It burns as you run away!");
+                            storyZone.append(dragonFireHitsText);
                             updateStats();
                             if(yourHealth <= 0) {
                                 storyZone.empty();
@@ -238,12 +242,12 @@ var main = function() {
                                 slaying = false;
                             } else {
                                 dragonBreathesFire = Math.floor(Math.random() * 2);
-                                dragonFireDamage = Math.floor(Math.random() * 7 + 1);
+                                dragonFireDamage = Math.floor(Math.random() * 3 + 1) + 6;
                             }
                         } else {
-                            console.log("The dragon spews fire from it's mouth, but you scramble and escape the blaze.");
+                            storyZone.append(dragonFireMissesText);
                             dragonBreathesFire = Math.floor(Math.random() * 2);
-                            dragonFireDamage = Math.floor(Math.random() * 7 + 1);
+                            dragonFireDamage = Math.floor(Math.random() * 3 + 1) + 6;
                         }
                         break;
                 } // Switch Statement
