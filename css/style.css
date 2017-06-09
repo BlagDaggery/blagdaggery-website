@@ -80,7 +80,8 @@ footer {
       margin-bottom: 10px; } }
 #slaying-results {
   background-color: #272822;
-  color: #558F5C; }
+  color: #558F5C;
+  font-family: Terminal Regular; }
 
 #status-row {
   width: 100%;

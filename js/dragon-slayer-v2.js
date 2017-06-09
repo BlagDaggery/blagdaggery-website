@@ -2,12 +2,13 @@
 // Upon clicking the button, show intro text & button to start the battle
 // Slowly cycle through the story, reducing yourHealth, dragonHealth, and relevant stats as the battle continues.
 // Once one of you dies, show the appropriate Game Over text, and display a button for them to play again
-// Use empty(); to clear the contents of the story zone before each new piece of text
 
 // NEXT STEPS
-// Start adding in story text
+// Create more story text options so it's not the same each time
+// Choose a different font
+// Updating styling on buttons and stats
+// When you win, the code still runs an attempted draggon attack. Make that stop.
 // Figure out a way to keep the game window a certain size (roughly)
-// Figure out how you want the player to flow through the different options
 
 var main = function() {
 
@@ -15,14 +16,14 @@ var main = function() {
     var controlZone = $("#control-zone");
 
     // Variables for story text
-    var introText = "<p>A Dragon has stolen all of the gold from your town!</p><p>You have tracked the Dragon to the mountain caves nearby, and must fight to win back your town's gold.</p><p>Undefeated so far, the Dragon confidently prepares to defend his treasure as you enter his lair.</p><button id='battle-start'>Let's get it on!</button>";
+    var introText = "<p>A Dragon has stolen all of the gold from your town!</p><p>Finding the Dragon in the mountain caves nearby, you must fight to win back your town's gold.</p><p>He confidently prepares to defend his treasure as you enter his lair.</p><button id='battle-start'>Let's get it on!</button>";
     
     var swordHitsText = "<p>You lunge forward and stab the dragon with your sword!</p>";
     var swordMissesText = "<p>You stab at the dragon, but he evades your strike!</p>";
     var arrowHitsText = "<p>You notch an arrow in your bow, aim for the heart, and fire! Bullseye!</p>";
     var arrowMissesText = "<p>You notch an arrow in your bow, aim for the heart, and fire! But the arrow sails wide!</p>";
-    var cabbageHitsText = "<p>You pull a head of cabbage from your bag and chuck it at the dragon! The cabbage seems to burn the dragon's hide! Dragons are allergic to cabbage!</p>";
-    var cabbageMissesText = "<p>You pull a head of cabbage from your bag and chuck it at the dragon, but the dragon dodges! The dragon looks fearful of the leafy green vegetable...</p>";
+    var cabbageHitsText = "<p>You chuck a head of cabbage at the dragon and it burns his hide! He is allergic to cabbage!</p>";
+    var cabbageMissesText = "<p>You toss a head of cabbage at the dragon, but you miss! The dragon looks fearful of the leafy green vegetable...</p>";
     
     var dragonClawsHitText = "<p>The dragon swipes at you with his claws and gashes your armor!</p>";
     var dragonClawsMissText = "<p>The dragon takes a swipe at you, but you duck out of the way just in time!</p>";
