@@ -6,9 +6,7 @@
 // NEXT STEPS
 // Create more story text options so it's not the same each time
 // Choose a different font
-// Updating styling on buttons and stats
-// When you win, the code still runs an attempted draggon attack. Make that stop.
-// Figure out a way to keep the game window a certain size (roughly)
+// Add Play Again function
 
 var main = function() {
 
@@ -34,7 +32,7 @@ var main = function() {
 
     var victoryText = "<p>The Dragon screeches in pain as you land the final blow! You have won!</p><p>You return home with the town's gold and an exciting tale of adventure.</p><p>Revered as a hero, you begin to grow restless, and start pondering your next adventure...</p>";
     var defeatText = "<p>Your vision blurs as you stumble backwards and fall to the ground, slowly passing into darkness...</p><p>The town remembers you fondly, but still live in fear of the dragon</p><p>They wait a few weeks before sending the next challenger...</p>";
-    var playAgain = "<p>Would you like to play again?</p>";
+    var playAgain = "<p>Would you like to play again?</p><button id='play-again'>Play Again</button>";
 
     // Variables for character inventory
     var arrowsInQuiver = 7;
@@ -67,6 +65,11 @@ var main = function() {
     var yourHealth = 30;
     var dragonHealth = 30;
 
+    function playAgain() {
+        $("#play-again").click(function() {
+
+        });
+    }
 
     function showStats() {
         $("#player-hp, #arrow-inventory, #cabbage-inventory, #dragon-hp").css("display", "inline-block");
