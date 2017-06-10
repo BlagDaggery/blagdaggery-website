@@ -5,24 +5,24 @@ var main = function() {
     var youHit = Math.floor(Math.random() * 2);
     var damageThisRound = Math.floor(Math.random() * 5 + 1);
     var totalDamage = 0;
-    var slayingResults = $("#slaying-results");
+    var storyZone = $("#story-zone");
 
     $("#click-to-play").click(function() {
         $(this).toggle();
-        slayingResults.append("<p>You have entered a dragon's layer. He notices you. You fight!</p>");
+        storyZone.append("<p>You have entered a dragon's layer. He notices you. You fight!</p>");
             while(slaying) {
                 if (youHit) {
-                    slayingResults.append("<p>You hit the dragon and did " + damageThisRound + " damage!</p>");
+                    storyZone.append("<p>You hit the dragon and did " + damageThisRound + " damage!</p>");
                     totalDamage += damageThisRound;
                     if (totalDamage >= 4) {
-                        slayingResults.append("<p>You slew the dragon!</p><p>Refresh the page to play again</p>");
+                        storyZone.append("<p>You slew the dragon!</p><p>Refresh the page to play again</p>");
                         slaying = false;
                     } else {
                         youHit = Math.floor(Math.random() * 2);
                     }
                 } else {
                     slaying = false;
-                    slayingResults.append("<p>You missed! The dragon has defeated you.</p><p>Refresh the page and try again</p>");
+                    storyZone.append("<p>You missed! The dragon has defeated you.</p><p>Refresh the page and try again</p>");
                 }
             }
     });
