@@ -5,6 +5,9 @@ h1, h2, h3, h4 {
 p {
   line-height: 1.4; }
 
+a {
+  color: #142F5A; }
+
 header {
   background-color: #142F5A;
   color: #CECEC2; }
@@ -80,10 +83,12 @@ footer {
       margin-bottom: 10px; } }
 #slaying-results {
   background-color: #272822;
-  color: #558F5C;
-  font-family: Terminal Regular; }
+  color: #558F5C; }
 
-#status-row {
+#credits {
+  margin-top: 5px; }
+
+#stat-zone {
   width: 100%;
   text-align: center; }
 
@@ -99,6 +104,20 @@ footer {
   margin-right: auto;
   margin-left: auto; }
 
+#battle-start, #sword, #arrows, #cabbage {
+  margin-left: 1px;
+  margin-right: 1px;
+  background-color: #272822;
+  color: #558F5C;
+  border: 1px solid #558F5C; }
+  #battle-start:hover, #sword:hover, #arrows:hover, #cabbage:hover {
+    cursor: pointer; }
+  #battle-start:active, #sword:active, #arrows:active, #cabbage:active {
+    border: 1px solid #558F5C; }
+
+@media (max-width: 699px) {
+  #stat-zone {
+    font-size: 70%; } }
 .calendar-controls label {
   font-size: 80%; }
 .calendar-controls div {

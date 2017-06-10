@@ -32,8 +32,8 @@ var main = function() {
     var dragonWingsHitText = "<p>Reeling back, the dragon flaps his wings, creating a mighty gust of wind! The wind knocks you back against a rock and you fall heavily on the ground.</p>";
     var dragonWingsMissText = "<p>The dragon flaps his wings, creating a gust of wind to knock you down, but you stand firm!</p>";
 
-    var victoryText = "<p>The Dragon screeches in pain as you land the final blow! You have won!</p><p>You return home to a hero's welcome, and your town is suddenly rich with all of the Dragon's treasure.</p><p>They use some of the gold to make a statue in your honor. Not bad, right?</p>";
-    var defeatText = "<p>Your vision blurs as you stumble backwards and fall to the ground, slowly passing into darkness...</p><p>The town remembers you fondly, but they kinda resent you a little bit.</p><p>I mean, you lost, so they're still living in fear of the dragon. And no one got their gold back. So...</p><p>They wait a few days before sending the next challenger...</p>";
+    var victoryText = "<p>The Dragon screeches in pain as you land the final blow! You have won!</p><p>You return home with the town's gold and an exciting tale of adventure.</p><p>Revered as a hero, you begin to grow restless, and start pondering your next adventure...</p>";
+    var defeatText = "<p>Your vision blurs as you stumble backwards and fall to the ground, slowly passing into darkness...</p><p>The town remembers you fondly, but still live in fear of the dragon</p><p>They wait a few weeks before sending the next challenger...</p>";
     var playAgain = "<p>Would you like to play again?</p>";
 
     // Variables for character inventory
@@ -145,23 +145,25 @@ var main = function() {
                             swordDamage = Math.floor(Math.random() * 3 + 1);
                         }
 
-                        if(dragonSwipesClaws) {
-                            yourHealth -= dragonClawDamage;
-                            storyZone.append(dragonClawsHitText);
-                            updateStats();
-                            if(yourHealth <= 0) {
-                                storyZone.empty();
-                                storyZone.append(defeatText);
-                                controlZone.empty();
-                                slaying = false;
+                        if (dragonHealth > 0) {
+                            if(dragonSwipesClaws) {
+                                yourHealth -= dragonClawDamage;
+                                storyZone.append(dragonClawsHitText);
+                                updateStats();
+                                if(yourHealth <= 0) {
+                                    storyZone.empty();
+                                    storyZone.append(defeatText);
+                                    controlZone.empty();
+                                    slaying = false;
+                                } else {
+                                    dragonSwipesClaws = Math.floor(Math.random() * 10);
+                                    dragonClawDamage = Math.floor(Math.random() * 3 + 1);
+                                }
                             } else {
+                                storyZone.append(dragonClawsMissText);
                                 dragonSwipesClaws = Math.floor(Math.random() * 10);
                                 dragonClawDamage = Math.floor(Math.random() * 3 + 1);
                             }
-                        } else {
-                            storyZone.append(dragonClawsMissText);
-                            dragonSwipesClaws = Math.floor(Math.random() * 10);
-                            dragonClawDamage = Math.floor(Math.random() * 3 + 1);
                         }
                         break;
 
@@ -190,24 +192,26 @@ var main = function() {
                             arrowDamage = Math.floor(Math.random() * 3 + 1) + 3;
                         }
 
-                        if (dragonFlapsWings) {
-                            storyZone.append(dragonWingsHitText);
-                            yourHealth -= dragonWingDamage;
-                            updateStats();
-                            if(yourHealth <= 0) {
-                                storyZone.empty();
-                                storyZone.append(defeatText);
-                                controlZone.empty();
-                                slaying = false;
+                        if (dragonHealth > 0) {
+                            if (dragonFlapsWings) {
+                                storyZone.append(dragonWingsHitText);
+                                yourHealth -= dragonWingDamage;
+                                updateStats();
+                                if(yourHealth <= 0) {
+                                    storyZone.empty();
+                                    storyZone.append(defeatText);
+                                    controlZone.empty();
+                                    slaying = false;
+                                } else {
+                                    dragonFlapsWings = Math.floor(Math.random() * 5);
+                                    dragonWingDamage = Math.floor(Math.random() * 3 + 1) + 3;
+                                }
                             } else {
+                                storyZone.append(dragonWingsMissText);
                                 dragonFlapsWings = Math.floor(Math.random() * 5);
                                 dragonWingDamage = Math.floor(Math.random() * 3 + 1) + 3;
                             }
-                        } else {
-                            storyZone.append(dragonWingsMissText);
-                            dragonFlapsWings = Math.floor(Math.random() * 5);
-                            dragonWingDamage = Math.floor(Math.random() * 3 + 1) + 3;
-                        }
+                        }    
                         break;
 
                     case 'cabbage':
@@ -232,23 +236,26 @@ var main = function() {
                             cabbageAttack = Math.floor(Math.random() * 2);
                             cabbageDamage = Math.floor(Math.random() * 3 + 1) + 6;
                         }
-                        if(dragonBreathesFire) {
-                            yourHealth -= dragonFireDamage;
-                            storyZone.append(dragonFireHitsText);
-                            updateStats();
-                            if(yourHealth <= 0) {
-                                storyZone.empty();
-                                storyZone.append(defeatText);
-                                controlZone.empty();
-                                slaying = false;
+
+                        if (dragonHealth > 0) {
+                            if(dragonBreathesFire) {
+                                yourHealth -= dragonFireDamage;
+                                storyZone.append(dragonFireHitsText);
+                                updateStats();
+                                if(yourHealth <= 0) {
+                                    storyZone.empty();
+                                    storyZone.append(defeatText);
+                                    controlZone.empty();
+                                    slaying = false;
+                                } else {
+                                    dragonBreathesFire = Math.floor(Math.random() * 2);
+                                    dragonFireDamage = Math.floor(Math.random() * 3 + 1) + 6;
+                                }
                             } else {
+                                storyZone.append(dragonFireMissesText);
                                 dragonBreathesFire = Math.floor(Math.random() * 2);
                                 dragonFireDamage = Math.floor(Math.random() * 3 + 1) + 6;
                             }
-                        } else {
-                            storyZone.append(dragonFireMissesText);
-                            dragonBreathesFire = Math.floor(Math.random() * 2);
-                            dragonFireDamage = Math.floor(Math.random() * 3 + 1) + 6;
                         }
                         break;
                 } // Switch Statement

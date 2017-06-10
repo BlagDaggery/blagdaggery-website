@@ -1,18 +1,22 @@
 // Dragon Slayer V2
+
 #slaying-results {
 	background-color: $accent-4;
 	color: $accent-1;
-	font-family: Terminal Regular;
 }
 
-#status-row {
+#credits {
+	margin-top: 5px;
+}
+
+#stat-zone {
 	width: 100%;
 	text-align: center;
 }
 
 #player-hp, #dragon-hp, #arrow-inventory, #cabbage-inventory {
 	display: none;
-	border: 1px solid $accent-1;
+	border: $button-border;
 	padding: 2px 4px;
 }
 
@@ -22,4 +26,24 @@
 	padding-top: 3px;
 	margin-right: auto;
 	margin-left: auto;
+}
+
+#battle-start, #sword, #arrows, #cabbage {
+	margin-left: 1px;
+	margin-right: 1px;
+	background-color: $accent-4;
+	color: $accent-1;
+	border: $button-border;
+	&:hover {
+		cursor: pointer;
+	}
+	&:active {
+		border: $button-border;
+	}
+}
+
+@include mobile {
+	#stat-zone {
+		font-size: 70%;
+	}
 }
