@@ -5,6 +5,9 @@ h1, h2, h3, h4 {
 p {
   line-height: 1.4; }
 
+a {
+  color: #142F5A; }
+
 header {
   background-color: #142F5A;
   color: #CECEC2; }
@@ -82,26 +85,39 @@ footer {
   background-color: #272822;
   color: #558F5C; }
 
-#status-row {
+#credits {
+  margin-top: 5px; }
+
+#stat-zone {
   width: 100%;
   text-align: center; }
 
-#player-hp {
-  width: 48%;
+#player-hp, #dragon-hp, #arrow-inventory, #cabbage-inventory {
   display: none;
-  text-align: left; }
+  border: 1px solid #558F5C;
+  padding: 2px 4px; }
 
-#dragon-hp {
-  width: 48%;
-  display: none;
-  text-align: right; }
-
-#story-zone {
+#story-zone, #control-zone {
   width: 80%;
-  margin-left: auto;
+  text-align: center;
+  padding-top: 3px;
   margin-right: auto;
-  text-align: center; }
+  margin-left: auto; }
 
+#battle-start, #sword, #arrows, #cabbage {
+  margin-left: 1px;
+  margin-right: 1px;
+  background-color: #272822;
+  color: #558F5C;
+  border: 1px solid #558F5C; }
+  #battle-start:hover, #sword:hover, #arrows:hover, #cabbage:hover {
+    cursor: pointer; }
+  #battle-start:active, #sword:active, #arrows:active, #cabbage:active {
+    border: 1px solid #558F5C; }
+
+@media (max-width: 699px) {
+  #stat-zone {
+    font-size: 70%; } }
 .calendar-controls label {
   font-size: 80%; }
 .calendar-controls div {
