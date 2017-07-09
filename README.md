@@ -9,7 +9,7 @@ Welcome to the BlagDaggery Website repository!
 
 ### Contribution guidelines ###
 
-* I'm keeping this pretty private for now
+* Please contact me if you are interested in contributing or offering feedback!
 
 ### Who do I talk to? ###
 
