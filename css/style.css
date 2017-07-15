@@ -163,7 +163,7 @@ html, body {
   margin: 0;
   font-family: sans-serif;
   height: 100%;
-  background-color: #CECEC2; }
+  background-color: #fff; }
 
 #wrapper {
   min-height: 100%;
@@ -194,7 +194,7 @@ html, body {
 
 .detail {
   margin-top: 0;
-  background-color: #CECEC2;
+  background-color: #fff;
   color: #142F5A;
   text-align: center;
   padding-bottom: 60px; }
@@ -220,7 +220,7 @@ html, body {
         border: 2px solid #142F5A; }
 
 .article {
-  background-color: #CECEC2;
+  background-color: #fff;
   color: #142F5A;
   padding-bottom: 60px; }
 
